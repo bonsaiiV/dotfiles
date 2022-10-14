@@ -1,5 +1,6 @@
-*
+/*
 !.gitignore
-!.config/i3/
-!.config/i3blocks/
-!.config/sway/
+!.config/
+.config/*
+!.bash_aliases
+!.config/sway
