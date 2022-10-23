@@ -1,8 +1,10 @@
 /*
 !.gitignore
-!.config/
-.config/*
 !.bash_aliases
 !.bash_profile
 !.bashrc
+!.bash_logout
+
+!.config/
+.config/*
 !.config/sway
