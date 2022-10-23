@@ -3,4 +3,6 @@
 !.config/
 .config/*
 !.bash_aliases
+!.bash_profile
+!.bashrc
 !.config/sway
