@@ -14,8 +14,8 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu ~/.config/sway/menu.sh | bemenu | xargs swaymsg exec --
-
+set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
+set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -66,6 +66,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+d exec $binmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
