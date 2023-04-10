@@ -10,3 +10,4 @@
 !.config/sway
 !.config/alacritty
 !.config/waybar
+!.config/nvim
