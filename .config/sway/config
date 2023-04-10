@@ -60,6 +60,10 @@ exec swayidle -w timeout 600 $lock
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+### Keyboard
+input * {
+	xkb_layout "eu"
+}
 ### Key bindings
 #
 # Basics:
@@ -76,6 +80,7 @@ exec swayidle -w timeout 600 $lock
 
     # Screenshot
     bindsym $mod+print exec grim -g "$(slurp)" - | wl-copy
+	bindsym $mod+shift+print exec grim -g "$(slurp)" - >> "$HOME/Documents/screenshots/unnamed.png"
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
