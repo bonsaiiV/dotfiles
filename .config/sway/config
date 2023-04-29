@@ -16,6 +16,8 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
+set $lowerAudioOut wpctl set-volume 55 0.05-
+set $raiseAudioOut wpctl set-volume 55 0.05+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -62,7 +64,7 @@ exec swayidle -w timeout 600 $lock
 
 ### Keyboard
 input * {
-	xkb_layout "eu"
+    xkb_layout "eu"
 }
 ### Key bindings
 #
@@ -80,7 +82,6 @@ input * {
 
     # Screenshot
     bindsym $mod+print exec grim -g "$(slurp)" - | wl-copy
-	bindsym $mod+shift+print exec grim -g "$(slurp)" - >> "$HOME/Documents/screenshots/unnamed.png"
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -166,6 +167,7 @@ gaps outer 3
 for_window [class="Steam"] move container to workspace number $ws8
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox"] move container to workspace number $ws2
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 assign [app_id="discord"] $ws9
 #
 # Layout stuff:
@@ -233,23 +235,22 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    strip_workspace_numbers yes
+bar swaybar_command waybar
+    #strip_workspace_numbers yes
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-
+    #colors {
+    #    statusline #ffffff
+    #    background #323232
+    #    inactive_workspace #32323200 #32323200 #5c5c5c
+    #}
+#}
 
 set $lockman exec ~/.config/sway/lock.sh
 bindsym $mod+Shift+x exec $lockman
-
+bindsym XF86AudioRaiseVolume exec $raiseAudioOut
+bindsym XF86AudioLowerVolume exec $lowerAudioOut
 include /etc/sway/config.d/*
+
