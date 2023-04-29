@@ -8,3 +8,5 @@
 !.config/
 .config/*
 !.config/sway
+!.config/alacritty
+!.config/waybar
