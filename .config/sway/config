@@ -16,8 +16,11 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
-set $lowerAudioOut wpctl set-volume 55 0.05-
-set $raiseAudioOut wpctl set-volume 55 0.05+
+set $lowerAudioOut pamixer -d 5
+set $raiseAudioOut pamixer -i 5
+set $toggleAudioOut pamixer -t
+set $decreaseBrightness brightnessctl s 10%-
+set $increaseBrightness brightnessctl s 10%+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -32,7 +35,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 ### Idle configuration
 #
 set $lock swaylock -c 330055
-exec swayidle -w \
+exec always swayidle -w \
 	timeout 570 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep $lock
@@ -252,5 +255,9 @@ set $lockman exec ~/.config/sway/lock.sh
 bindsym $mod+Shift+x exec $lockman
 bindsym XF86AudioRaiseVolume exec $raiseAudioOut
 bindsym XF86AudioLowerVolume exec $lowerAudioOut
+bindsym XF86AudioMute exec $toggleAudioOut
+bindsym XF86MonBrightnessDown exec $decreaseBrightness
+bindsym XF86MonBrightnessUp exec $increaseBrightness
+
 include /etc/sway/config.d/*
 

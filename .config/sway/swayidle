@@ -1,0 +1,4 @@
+timeout 570 'swaymsg "output * dpms off"' \
+resume 'swaymsg "output * dpms on"' \
+before-sleep $lock
+timeout 600 $lock
