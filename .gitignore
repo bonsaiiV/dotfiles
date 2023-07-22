@@ -9,6 +9,7 @@
 .config/*
 !.config/nushell
 .config/nushell/history.txt
+!.config/bash/bash_aliases
 !.config/git
 !.config/sway
 !.config/alacritty
