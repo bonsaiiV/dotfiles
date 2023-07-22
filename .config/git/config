@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = main
+[user]
+	email = dominik.riemer@udo.edu
+	name = Bonsaiiv
+[credential "https://github.com"]
+    helper =
+    helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper = !/usr/bin/gh auth git-credential
+[pull]
+	rebase = true
