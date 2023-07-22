@@ -5,11 +5,7 @@
 def create_left_prompt [] {
     mut home = ""
     try {
-        if $nu.os-info.name == "windows" {
-            $home = $env.USERPROFILE
-        } else {
-            $home = $env.HOME
-        }
+        $home = $env.HOME
     }
 
     let dir = ([
