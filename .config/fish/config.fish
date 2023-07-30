@@ -1,5 +1,6 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+	set -U fish_greeting
+	fish_config theme choose Dracula
 end
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
@@ -9,9 +10,6 @@ export MOZ_ENABLE_WAYLAND=1
 export EDITOR='nvim'
 export JAVA_HOME="/usr"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-#if test -f $HOME/.config/fish/display.fish
-#	$HOME/.config/fish/display.fish
-#end
 if [ "$(tty)" = "/dev/tty1" ]
 	exec sway
 end
