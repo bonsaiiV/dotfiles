@@ -171,6 +171,7 @@ for_window [class="Steam"] move container to workspace number $ws8
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox"] move container to workspace number $ws2
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Password Required - Mozilla Firefox"] floating enable
 assign [app_id="discord"] $ws9
 #
 # Layout stuff:
