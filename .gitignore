@@ -16,6 +16,6 @@
 !.config/waybar
 !.config/nvim
 !.config/fish
-.config/fish/functions/cp_fsr.fish
+.config/fish/functions/fsrf.fish
 .config/fish/conf.d/local.fish
 .config/fish/conf.d/display.fish
