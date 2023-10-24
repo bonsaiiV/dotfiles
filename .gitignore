@@ -5,10 +5,13 @@
 !.bashrc
 !.bash_logout
 
+!.dotfiles
+
 !.config/
 .config/*
 !.config/nushell
 .config/nushell/history.txt
+!.config/cabal
 !.config/bash/bash_aliases
 !.config/git
 !.config/sway
