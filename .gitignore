@@ -17,7 +17,12 @@
 !.config/sway
 !.config/alacritty
 !.config/waybar
+
 !.config/nvim
+.config/nvim/rplugin.vim
+.config/nvim/site
+.config/nvim/plugin/packer_compiled.lua
+
 !.config/fish
 .config/fish/functions/fsrf.fish
 .config/fish/conf.d/local.fish
