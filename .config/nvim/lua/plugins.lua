@@ -53,6 +53,7 @@ return require 'packer'.startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		},
 	}
+	use 'sar/cmp-lsp.nvim'
 
 	if bootstrap then require('packer').sync() end
 end)
