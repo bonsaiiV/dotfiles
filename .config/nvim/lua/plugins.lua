@@ -14,7 +14,7 @@ return require 'packer'.startup(function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require 'nvim-treesitter.install'.update{with_sync = true}() end,
 	}
-	use 'nvim-treesitter/nvim-treesitter-context'
+	--use 'nvim-treesitter/nvim-treesitter-context'
 	use {
 		'lervag/vimtex',
 		opt = true,
@@ -56,4 +56,5 @@ return require 'packer'.startup(function(use)
 	use 'sar/cmp-lsp.nvim'
 
 	if bootstrap then require('packer').sync() end
+	--require('packer').sync()
 end)
