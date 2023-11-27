@@ -1,5 +1,4 @@
 # Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -21,16 +20,6 @@ set $raiseAudioOut pamixer -i 5
 set $toggleAudioOut pamixer -t
 set $decreaseBrightness brightnessctl s 10%-
 set $increaseBrightness brightnessctl s 10%+
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -163,8 +152,6 @@ set $ws10 10
 # Window stuff
 #
 
-gaps inner 5
-gaps outer 3
 
 #for_window [app_id="Alacritty"] opacity 0.7
 for_window [class="steam"] move container to workspace number $ws8
@@ -198,6 +185,8 @@ assign [app_id="discord"] $ws9
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+	bindsym $mod+z focus child
 #
 # Scratchpad:
 #
@@ -235,23 +224,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar swaybar_command waybar
-    #strip_workspace_numbers yes
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    #colors {
-    #    statusline #ffffff
-    #    background #323232
-    #    inactive_workspace #32323200 #32323200 #5c5c5c
-    #}
-#}
-
 set $lockman exec ~/.config/sway/lock.sh
 bindsym $mod+Shift+x exec $lockman
 bindsym XF86AudioRaiseVolume exec $raiseAudioOut
@@ -260,5 +232,5 @@ bindsym XF86AudioMute exec $toggleAudioOut
 bindsym XF86MonBrightnessDown exec $decreaseBrightness
 bindsym XF86MonBrightnessUp exec $increaseBrightness
 
+include style.conf
 include /etc/sway/config.d/*
-
