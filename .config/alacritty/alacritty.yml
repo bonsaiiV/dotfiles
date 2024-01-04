@@ -1,6 +1,0 @@
-  title: Alacritty
-  dynamic_title: true
-  shell:
-    program: /bin/fish
-    args:
-      - --login

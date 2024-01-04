@@ -1,0 +1,18 @@
+[window]
+dynamic_title = true
+title = "Alacritty"
+opacity = 0.8
+
+
+[shell]
+args = ["--login"]
+program = "/bin/fish"
+
+[bell]
+duration = 1000
+animation = "Ease"
+color = "#33dd55"
+
+[colors.primary]
+#foreground = "#b5ddb5"
+background = "#181818"
