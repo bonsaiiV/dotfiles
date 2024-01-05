@@ -2,7 +2,7 @@
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "cpu", "battery", "clock"],
+    "modules-right": ["network", "cpu", "wireplumber", "battery", "clock"],
     "sway/window": {
         "max-length": 50
     },
@@ -17,6 +17,9 @@
         "format": "{usage}% ",
         "tooltip": false,
     },
+	"wireplumber": {
+
+	},
 	"network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",

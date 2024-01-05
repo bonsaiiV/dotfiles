@@ -13,6 +13,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
+set $custommenu cat	~/.config/sway/applist | grep -E ^[^#] --color=never | ~/.config/sway/custom_menu.fish | xargs swaymsg exec --
 set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
 set $lowerAudioOut pamixer -d 5
@@ -56,7 +57,7 @@ exec swayidle -w timeout 600 $lock
 
 ### Keyboard
 input * {
-    xkb_layout "eu"
+    xkb_layout "custom_xkb"
 }
 ### Key bindings
 #
@@ -70,7 +71,7 @@ input * {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec $binmenu
+    bindsym $mod+Shift+d exec $custommenu
 
     # Screenshot
     bindsym $mod+print exec grim -g "$(slurp)" - | wl-copy
