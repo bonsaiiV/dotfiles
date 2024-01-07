@@ -24,6 +24,6 @@
 .config/nvim/plugin/packer_compiled.lua
 
 !.config/fish
-.config/fish/functions/fsrf.fish
+.config/fish/functions/hledger.fish
 .config/fish/conf.d/local.fish
 .config/fish/conf.d/display.fish
