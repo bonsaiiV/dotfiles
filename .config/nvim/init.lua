@@ -14,6 +14,10 @@ opt.breakindent = true
 
 opt.mouse		= 'a'
 
+-- treesitter float stuff
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 50
 -- Fix terrible float color
 vim.cmd 'colorscheme desert'
 --vim.api.nvim_set_hl(0, 'Pmenu', {bg = '#555555'})
