@@ -126,6 +126,7 @@ return {
 			require 'mason-lspconfig'.setup {
 				ensure_installed = {
 					'lua_ls',
+					'clangd',
 				},
 				handlers = {
 					lsp_zero.default_setup,
