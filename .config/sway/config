@@ -106,11 +106,17 @@ input * {
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    # Arrow keys to move workspace to output
+    bindsym $mod+Shift+Left move workspace to output left
+    bindsym $mod+Shift+Down move workspace to output down
+    bindsym $mod+Shift+Up move workspace to output up
+    bindsym $mod+Shift+Right move workspace to output right
+
+	# Marking stuff
+	show_marks yes
+	bindsym $mod+m mark x
+	#bindsym $mod+Shift+m swap container with mark x
+	bindsym $mod+Shift+m [workspace=__focused__ con_mark="x"] focus
 #
 # Workspaces:
 #
