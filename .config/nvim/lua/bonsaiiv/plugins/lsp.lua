@@ -19,7 +19,7 @@ return {
 		dependencies = {
 			{ 'hrsh7th/cmp-buffer' },
 			{ 'hrsh7th/cmp-calc' },
-			{ 'FelipeLema/cmp-async-path' },
+			{ 'hrsh7th/cmp-path' },
 			{ 'hrsh7th/cmp-nvim-lua' },
 			{ 'L3MON4D3/LuaSnip' },
 		},
@@ -81,7 +81,7 @@ return {
 				sources = {
 					{ name = 'luasnip' },
 					{ name = 'calc' },
-					{ name = 'async_path' },
+					{ name = 'path' },
 					{ name = 'nvim_lua' },
 					{ name = 'nvim_lsp', group_index = 1 },
 					{ name = 'buffer', group_index = 2, keyword_length = 3 },
