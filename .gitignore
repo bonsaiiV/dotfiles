@@ -17,6 +17,7 @@
 !.config/sway
 !.config/alacritty
 !.config/waybar
+!.config/mimeapps.list
 
 !.config/nvim
 .config/nvim/lazy-lock.json
