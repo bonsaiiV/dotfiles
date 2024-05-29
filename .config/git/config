@@ -12,3 +12,5 @@
 	rebase = true
 [alias]
 	fpush = push --force-with-lease
+[core]
+	pager = delta
