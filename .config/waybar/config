@@ -1,17 +1,22 @@
 {
+	"strip_workspace_numbers": "yes",
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["network", "cpu", "wireplumber", "battery", "clock"],
     "sway/window": {
-        "max-length": 50
+        "max-length": 50,
     },
+	"sway/workspaces": {
+		"format": "{name}",
+		"disable-scroll": true,
+	},
     "battery": {
         "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
     },
 	"clock": {
-		"format-alt": "{:%a, %d. %b  %H:%M}"
+		"format-alt": "{:%a, %d. %b  %H:%M}",
 	},
 	"cpu": {
         "format": "{usage}% ",
@@ -27,6 +32,6 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-	}
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+	},
 }
