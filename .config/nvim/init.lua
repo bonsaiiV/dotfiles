@@ -1,8 +1,10 @@
 vim.g.mapleader = ' '
 local opt = vim.opt
+local api = vim.api
 
 opt.number		= true
 opt.relativenumber	= true
+opt.scrolloff = 4
 -- TODO: lookup help
 opt.tabstop		= 4
 opt.shiftwidth		= 4
@@ -14,14 +16,17 @@ opt.breakindent = true
 
 opt.mouse		= 'a'
 
--- treesitter float stuff
+-- #fold-setup using treesitter
+-- TODO better fold indication
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 50
--- Fix terrible float color
-vim.cmd 'colorscheme desert'
---vim.api.nvim_set_hl(0, 'Pmenu', {bg = '#555555'})
+vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').' ... ' . '(' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
+-- TODO find better colorscheme
+vim.cmd 'colorscheme desert'
+
+-- plugin setup using lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
