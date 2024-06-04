@@ -163,7 +163,7 @@ set $ws10 10:10
 
 #for_window [app_id="Alacritty"] opacity 0.7
 for_window [class="steam"] move container to workspace number $ws8
-for_window [shell="xwayland"] title_format "%title [XWayland]"
+#for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox"] move container to workspace number $ws2
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Password Required - Mozilla Firefox"] floating enable
