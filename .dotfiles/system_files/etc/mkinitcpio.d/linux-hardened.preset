@@ -1,0 +1,17 @@
+# mkinitcpio preset file for the 'linux-hardened' package
+
+#ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-linux-hardened"
+
+#PRESETS=('default' 'fallback')
+PRESETS=('fallback')
+
+#default_config="/etc/mkinitcpio.conf"
+#default_image="/boot/initramfs-linux-hardened.img"
+#default_uki="/efi/EFI/Linux/arch-linux-hardened.efi"
+#default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+
+#fallback_config="/etc/mkinitcpio.conf"
+#fallback_image="/boot/initramfs-linux-hardened-fallback.img"
+fallback_uki="/efi/EFI/Linux/arch-linux-hardened-fallback.efi"
+fallback_options="-S autodetect"
