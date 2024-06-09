@@ -1,0 +1,5 @@
+show=drun
+term=alacritty
+insensitive=true
+#gtk_dark=true
+location=center

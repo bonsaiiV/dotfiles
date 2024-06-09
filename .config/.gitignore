@@ -7,12 +7,9 @@
 !alacritty
 !waybar
 !mimeapps.list
+!wofi
 
 !nvim
 nvim/lazy-lock.json
 
 !fish
-fish/functions/fsrf.fish
-fish/functions/jupdate.fish
-fish/conf.d/local.fish
-fish/conf.d/display.fish

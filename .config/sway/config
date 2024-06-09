@@ -16,7 +16,7 @@ set $term alacritty
 set $custommenu cat	~/.config/sway/applist | grep -E ^[^#] --color=never | ~/.config/sway/custom_menu.fish | xargs swaymsg exec --
 set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 # set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
-set $menu wofi --show drun
+set $menu wofi
 set $lowerAudioOut pamixer -d 5
 set $raiseAudioOut pamixer -i 5
 set $toggleAudioOut pamixer -t
