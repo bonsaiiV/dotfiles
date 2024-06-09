@@ -8,22 +8,4 @@
 !.dotfiles
 
 !.config/
-.config/*
-!.config/nushell
-.config/nushell/history.txt
-!.config/cabal
-!.config/bash/bash_aliases
-!.config/git
-!.config/sway
-!.config/alacritty
-!.config/waybar
-!.config/mimeapps.list
 
-!.config/nvim
-.config/nvim/lazy-lock.json
-
-!.config/fish
-.config/fish/functions/fsrf.fish
-.config/fish/functions/jupdate.fish
-.config/fish/conf.d/local.fish
-.config/fish/conf.d/display.fish
