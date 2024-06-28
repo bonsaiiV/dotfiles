@@ -15,6 +15,7 @@ alias grep='grep --color=auto'
 export EDITOR='nvim'
 export LEDGER_FILE='/home/bonsaiiv/Documents/orga/finances/2023.jounral'
 export PATH="$PATH:/home/bonsaiiv/.local/share/cargo/bin"
+export R_ENVIRON_USER='/home/bonsaiiv/.config/R/Renviron'
 
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\W\[\e[0m\]\$ '
 

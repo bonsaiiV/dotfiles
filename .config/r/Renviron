@@ -1,0 +1,2 @@
+R_PROFILE_USER = ${HOME}/.config/r/Rprofile
+R_LIBS_USER = ${HOME}/.cache/r/library

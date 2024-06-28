@@ -8,6 +8,7 @@
 !waybar
 !mimeapps.list
 !wofi
+!r
 
 !nvim
 nvim/lazy-lock.json
