@@ -11,6 +11,7 @@ return {
 				'fish', 'bash', 'awk',
 				'lua', 'rust',
 				'markdown',
+				'ledger',
 			},
 			sync_install = false,
 			auto_install = true,
