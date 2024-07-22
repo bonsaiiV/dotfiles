@@ -24,9 +24,9 @@ repository hackage.haskell.org
 -- http-transport:
 -- nix: False
 -- local-no-index-repo:
-remote-repo-cache: /home/bonsaiiv/.cabal/packages
--- logs-dir: /home/bonsaiiv/.cabal/logs
-world-file: /home/bonsaiiv/.cabal/world
+remote-repo-cache: /home/bonsaiiv/.cache/cabal/packages
+logs-dir: /home/bonsaiiv/.cache/cabal/logs
+world-file: /home/bonsaiiv/.cache/cabal/world
 -- store-dir:
 -- active-repositories:
 -- verbose: 1
@@ -62,7 +62,7 @@ executable-dynamic: True
 -- cid:
 -- extra-lib-dirs:
 -- extra-framework-dirs:
-extra-prog-path: /home/bonsaiiv/.cabal/bin
+extra-prog-path: /home/bonsaiiv/.cache/cabal/bin
 -- instantiate-with:
 -- tests: False
 -- coverage: False
@@ -99,7 +99,7 @@ extra-prog-path: /home/bonsaiiv/.cabal/bin
 -- index-state:
 -- root-cmd:
 -- symlink-bindir:
-build-summary: /home/bonsaiiv/.cabal/logs/build.log
+build-summary: /home/bonsaiiv/.cache/cabal/logs/build.log
 -- build-log:
 remote-build-reporting: none
 -- report-planning-failure: False
@@ -113,7 +113,7 @@ jobs: $ncpus
 -- package-env:
 -- overwrite-policy:
 -- install-method:
-installdir: /home/bonsaiiv/.cabal/bin
+installdir: /home/bonsaiiv/.cache/cabal/bin
 -- username:
 -- password:
 -- password-command:
@@ -147,7 +147,7 @@ init
   -- source-dir: src
 
 install-dirs user
-  -- prefix: /home/bonsaiiv/.cabal
+  -- prefix: /home/bonsaiiv/.cache/cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
   -- libsubdir: $abi/$libname
