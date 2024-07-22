@@ -2,6 +2,8 @@ vim.g.mapleader = ' '
 local opt = vim.opt
 local api = vim.api
 
+opt.shell='/bin/fish'
+
 opt.number		= true
 opt.relativenumber	= true
 opt.scrolloff = 4
