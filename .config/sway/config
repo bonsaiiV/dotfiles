@@ -13,7 +13,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $custommenu cat	~/.config/sway/applist | grep -E ^[^#] --color=never | ~/.config/sway/custom_menu.fish | xargs swaymsg exec --
+set $custommenu cat ~/.config/sway/applist | grep -E ^[^#] --color=never | ~/.config/sway/custom_menu.fish | xargs swaymsg exec --
 set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 # set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
 set $menu wofi
@@ -27,9 +27,9 @@ set $increaseBrightness brightnessctl s 10%+
 #
 set $lock swaylock -c 330055
 exec always swayidle -w \
-	timeout 570 'swaymsg "output * dpms off"' \
-	resume 'swaymsg "output * dpms on"' \
-	before-sleep $lock
+    timeout 570 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep $lock
 exec swayidle -w timeout 600 $lock
 #
 # Example configuration:
@@ -113,11 +113,11 @@ input * {
     bindsym $mod+Shift+Up move workspace to output up
     bindsym $mod+Shift+Right move workspace to output right
 
-	# Marking stuff
-	show_marks yes
-	bindsym $mod+m mark x
-	#bindsym $mod+Shift+m swap container with mark x
-	bindsym $mod+Shift+m [workspace=__focused__ con_mark="x"] focus
+    # Marking stuff
+    show_marks yes
+    bindsym $mod+m mark x
+    #bindsym $mod+Shift+m swap container with mark x
+    bindsym $mod+Shift+m [workspace=__focused__ con_mark="x"] focus
 #
 # Workspaces:
 #
@@ -196,7 +196,7 @@ assign [app_id="discord"] $ws9
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-	bindsym $mod+z focus child
+    bindsym $mod+z focus child
 #
 # Scratchpad:
 #
