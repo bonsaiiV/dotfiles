@@ -13,8 +13,6 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $custommenu cat ~/.config/sway/applist | grep -E ^[^#] --color=never | ~/.config/sway/custom_menu.fish | xargs swaymsg exec --
-set $binmenu ~/.config/sway/binmenu.sh | bemenu | xargs swaymsg exec --
 # set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
 set $menu wofi
 set $lowerAudioOut pamixer -d 5
@@ -72,7 +70,6 @@ input * {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec $custommenu
 
     # Screenshot
     bindsym $mod+print exec grim -g "$(slurp)" - | wl-copy
@@ -183,6 +180,8 @@ assign [app_id="discord"] $ws9
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
+    bindsym $mod+n split n
+
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
