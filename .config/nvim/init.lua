@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+require('bonsaiiv/filetypes/glsl')
 local opt = vim.opt
 local api = vim.api
 
