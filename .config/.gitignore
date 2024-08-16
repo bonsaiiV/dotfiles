@@ -1,7 +1,8 @@
 /*
 !.gitignore
 !cabal
-!bash/bash_aliases
+!bash
+!bash/.bashrc
 !git
 !sway
 !alacritty
