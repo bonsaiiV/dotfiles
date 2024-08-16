@@ -14,6 +14,7 @@ alias grep='grep --color=auto'
 
 export EDITOR='nvim'
 export LEDGER_FILE='/home/bonsaiiv/Documents/orga/finances/2023.jounral'
+export PYTHON_HISTORY='/home/bonsaiiv/.cache/python_history'
 export PATH="$PATH:/home/bonsaiiv/.local/share/cargo/bin"
 export R_ENVIRON_USER='/home/bonsaiiv/.config/R/Renviron'
 
