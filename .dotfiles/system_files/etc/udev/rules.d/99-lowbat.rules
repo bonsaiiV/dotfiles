@@ -1,3 +1,4 @@
 SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="/usr/bin/systemctl suspend"
-SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-9]", RUN+="/usr/bin/brightnessctl s 20%%"
+#SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-9]", RUN+="/usr/bin/brightnessctl s 20%%"
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-9]", RUN+="/usr/bin/notify-send -t 10000 lowbattery"
 SUBSYSTEM=="power_supply", ATTR{status}=="Charging", RUN+="/usr/bin/brightnessctl s 100%%"
