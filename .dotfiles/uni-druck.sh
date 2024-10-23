@@ -7,7 +7,8 @@ while getopts ':p:' OPTION; do
 			case "$OPTARG" in
 
 				"fsr")
-					printer=
+					printer=FSR-Buero
+					ssh_target=eins
 					;;
 
 				"oh14")
@@ -23,4 +24,4 @@ if [ $# -lt 1 -a -e $1 ]; then
 	exit 1
 fi
 echo "printing $1 at $printer accessing through $ssh_target"
-cat "$1" | ssh $ssh_target "lpr -P ohs14pr1"
+cat "$1" | ssh $ssh_target "lpr -P $printer"
