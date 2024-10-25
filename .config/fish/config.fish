@@ -8,6 +8,7 @@ end
 export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 export PATH="$PATH:$HOME/.ghcup/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
+export SHELL="/bin/fish"
 
 if [ "$(tty)" = "/dev/tty1" ]
 	exec sway
