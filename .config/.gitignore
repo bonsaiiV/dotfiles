@@ -10,6 +10,7 @@
 !mimeapps.list
 !wofi
 !r
+!zellij
 
 !nvim
 nvim/lazy-lock.json
