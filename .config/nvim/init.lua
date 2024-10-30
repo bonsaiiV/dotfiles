@@ -4,39 +4,26 @@ local api = vim.api
 
 opt.shell='/bin/fish'
 
-opt.number		= true
-opt.relativenumber	= true
-opt.scrolloff = 4
--- TODO: lookup help
-opt.tabstop		= 4
-opt.shiftwidth		= 4
-opt.smarttab		= true
-opt.softtabstop		= 4
+opt.number        = true
+opt.relativenumber    = true
+opt.scrolloff        = 4
+opt.expandtab        = true
+opt.tabstop        = 8
+opt.shiftwidth        = 4
+opt.smarttab        = true
+opt.softtabstop        = 4
 
 opt.linebreak = true
 opt.breakindent = true
 
-opt.mouse		= 'a'
+opt.mouse        = 'a'
 
 -- #fold-setup using treesitter
 -- TODO better fold indication
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldlevel = 50
+opt.foldlevel = 50   -- arbetrary large value
 vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').' ... ' . '(' . (v:foldend - v:foldstart + 1) . ' lines)']]
-
-vim.filetype.add(
-	{
-		extension = {
-			vert = 'glsl',
-			frag = 'glsl',
-			geom = 'glsl',
-			comp = 'glsl',
-			tese = 'glsl',
-			tesc = 'glsl',
-		},
-	}
-)
 
 -- TODO find better colorscheme
 vim.cmd 'colorscheme desert'
@@ -44,18 +31,30 @@ vim.cmd 'colorscheme desert'
 -- plugin setup using lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 require 'lazy'.setup('bonsaiiv/plugins', {
-	change_detection = {
-		notify = false,
-	},
+    change_detection = {
+        notify = false,
+    },
 })
+api.nvim_create_user_command('Scratch',
+    function()
+        vim.cmd("split")
+        vim.cmd("noswapfile hide enew")
+        vim.opt_local.buftype='nofile'
+        vim.opt_local.bufhidden='hide'
+        vim.opt_local.buflisted=false
+        vim.cmd("lcd ~")
+    end,
+    {desc ='creates a scratch buffer'}
+)
+require('bonsaiiv/filetypes')
