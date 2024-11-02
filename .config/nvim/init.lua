@@ -46,6 +46,13 @@ require 'lazy'.setup('bonsaiiv/plugins', {
         notify = false,
     },
 })
+api.nvim_create_user_command('Tabs',
+    function()
+        vim.opt_local.expandtab = false
+        vim.opt_local.shiftwidth = 8
+    end,
+    {desc ='use tabs for indenting'}
+)
 api.nvim_create_user_command('Scratch',
     function()
         vim.cmd("split")
