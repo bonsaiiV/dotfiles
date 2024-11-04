@@ -1,22 +1,23 @@
 
 layout {
-	tab {
-		pane size=1 bordeless=true {
+	tab focus=true {
+		pane size=1 borderless=true {
 			plugin location="tab-bar"
 		}
-		pane {
-			command="nvim" args="."
+		pane focus=true {
+			command "nvim"
+			args "."
 		}
-		pane size=2 bordeless=true {
+		pane size=2 borderless=true {
 			plugin location="status-bar"
 		}
 	}
 	tab {
-		pane size=1 bordeless=true {
+		pane size=1 borderless=true {
 			plugin location="tab-bar"
 		}
 		pane
-		pane size=2 bordeless=true {
+		pane size=2 borderless=true {
 			plugin location="status-bar"
 		}
 	}
