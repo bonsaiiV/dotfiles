@@ -6,7 +6,7 @@ opacity = 0.8
 [font]
 size = 9.25
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/bin/fish"
 
@@ -21,3 +21,5 @@ background = "#181818"
 
 [mouse]
 hide_when_typing = true
+
+[terminal]
