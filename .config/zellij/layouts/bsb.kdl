@@ -1,4 +1,7 @@
 
+env {
+	USERNAME "smdoriem"
+}
 layout {
 	tab_template name="page" {
 		pane size=1 borderless=true {
