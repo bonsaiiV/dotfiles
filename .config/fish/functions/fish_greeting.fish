@@ -1,13 +1,10 @@
 function show_unpushed -v PWD -d 'Show unpushed git commits'
-	set unstaged $(git diff --shortstat . 2>/dev/null)
-	set staged $(git diff --shortstat --staged . 2>/dev/null)
-	if [ -n unstaged ];
-        #	echo -e "local unstaged changes:\n\t$unstaged"
-	end
-	if [ -n staged ];
-        #echo -e "local staged changes:\n\t$staged"
-	end
-	git log -n8 --oneline @{u}..HEAD -- 2>/dev/null
+	git ls-files -z --others --exclude-standard . 2>/dev/null \
+		| grep -cze '^' \
+		| sed -e '/^0$/d' -e 's/[[:digit:]]\+/ \0 untracked files/' \
+		| cat - (git diff --shortstat . 2>/dev/null | psub) \
+		| sed -ze 's/\n/,/g' -e 's/,$/\n/'
+	git log -n8 @{u}..HEAD -- 2>/dev/null
 end
 function fish_greeting
 	show_unpushed
