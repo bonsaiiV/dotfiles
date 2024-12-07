@@ -1,24 +1,21 @@
 
 layout {
-	tab focus=true {
+	default_tab_template {
 		pane size=1 borderless=true {
 			plugin location="tab-bar"
 		}
-		pane focus=true {
-			command "nvim"
-			args "."
-		}
+		children
 		pane size=2 borderless=true {
 			plugin location="status-bar"
 		}
 	}
+	tab focus=true {
+		pane focus=true {
+			command "nvim"
+			args "."
+		}
+	}
 	tab {
-		pane size=1 borderless=true {
-			plugin location="tab-bar"
-		}
 		pane
-		pane size=2 borderless=true {
-			plugin location="status-bar"
-		}
 	}
 }
