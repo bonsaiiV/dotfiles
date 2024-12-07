@@ -7,7 +7,7 @@ while getopts ':p:' OPTION; do
             case "$OPTARG" in
 
                 "fsr")
-                    printer=FSR-Buero
+                    printer=fsi-buero
                     ssh_target=eins
                     ;;
 
