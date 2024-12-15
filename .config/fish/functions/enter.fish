@@ -11,10 +11,14 @@ function enter -d 'enter a zellij session'
 			return
 		end
 	end
-	for dir in (ls -d */)
-		if [ (echo $dir | sed -e "s:/::") = $argv[1] ]
+	for dir in (ls -A)
+		if [ ! -d $dir ] 
+			continue
+		end
+		if [ $dir = $argv[1] ]
 			cd $argv[1]
 			zellij
+			cd -
 			return
 		end
 	end
