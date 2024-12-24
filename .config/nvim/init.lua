@@ -7,9 +7,9 @@ opt.shell='/bin/fish'
 opt.number        = true
 opt.relativenumber    = true
 opt.scrolloff        = 4
-opt.expandtab        = true
+opt.expandtab        = false
 opt.tabstop        = 8
-opt.shiftwidth        = 4
+opt.shiftwidth        = 8
 opt.smarttab        = true
 opt.softtabstop        = 4
 
