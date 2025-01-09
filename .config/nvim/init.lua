@@ -27,6 +27,7 @@ vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'
 
 -- TODO find better colorscheme
 vim.cmd 'colorscheme desert'
+api.nvim_set_hl(0, "MatchParen" , {bg="grey", fg="lightgreen" } )
 
 -- plugin setup using lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
