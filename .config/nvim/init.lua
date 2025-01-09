@@ -54,6 +54,13 @@ api.nvim_create_user_command('Tabs',
     end,
     {desc ='use tabs for indenting'}
 )
+api.nvim_create_user_command('Space',
+    function()
+        vim.opt_local.expandtab = true
+        vim.opt_local.shiftwidth = 4
+    end,
+    {desc ='use spaces for indenting'}
+)
 api.nvim_create_user_command('Scratch',
     function()
         vim.cmd("split")
