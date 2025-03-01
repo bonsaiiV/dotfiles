@@ -16,6 +16,11 @@ while getopts ':p:' OPTION; do
                     ssh_target=uran
                     ;;
 
+                "fin")
+                    printer=oh14eg
+                    ssh_target=eins
+                    ;;
+
                 "net")
                     printer=net
                     ;;
