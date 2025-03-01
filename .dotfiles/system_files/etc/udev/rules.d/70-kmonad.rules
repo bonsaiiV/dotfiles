@@ -1,6 +1,7 @@
 ACTION!="add", GOTO="kmonad_end"
 KERNEL!="event[0-9]*", GOTO="kmonad_end"
 SUBSYSTEM!="input", GOTO="kmonad_end"
+DRIVERS!="atkbd", GOTO="kmonad_end"
 
 PROGRAM+="/usr/bin/systemd-escape -p '$devnode'"
 
