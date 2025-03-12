@@ -1,8 +1,12 @@
 #!/bin/bash
 printer=""
 ssh_target=""
-while getopts ':p:' OPTION; do
+count=1
+while getopts ':p:c:' OPTION; do
 	case "$OPTION" in
+		c)
+			count=$OPTARG
+			;;
 		p)
 			case "$OPTARG" in
 
@@ -24,7 +28,6 @@ while getopts ':p:' OPTION; do
 				"net")
 					printer=net
 					;;
-
 			esac
 	esac
 done
@@ -55,7 +58,7 @@ while [ $# -gt 0 ]; do
 	fi
 	success+="\n\t- \"$1\""
 	echo "printing $1 at $printer $location_info"
-	cat "$1" | ssh $ssh_target "lpr -P $printer"
+	cat "$1" | ssh $ssh_target "lpr -P $printer -# $count"
 	#print_command="echo test"
 	#cat "$1" | eval $print_command
 	shift 1
