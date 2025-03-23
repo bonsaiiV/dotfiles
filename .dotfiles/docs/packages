@@ -1,0 +1,11 @@
+base linux linux-firmware
+doas git fish git-delta
+btrfs-progs networkmanager
+sway wofi xorg-xwayland waybar swaybg swaylock
+kmonad
+gcc clang binutils
+alacritty xdg-utils firefox
+
+steam pipewire-alsa
+
+linux-headers are required on an nvidia system

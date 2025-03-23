@@ -1,0 +1,16 @@
+overwrites in ~/.local/share/applications/[app].desktop
+
+1. steam.desktop: -no-cef-sandbox to prevent crashes form diverging chrome sandbox and glibc
+
+[Desktop Entry]
+Name=Steam
+Comment=Application for managing and playing games on Steam
+Exec=/usr/bin/steam-runtime -no-cef-sandbox %U
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;Game;
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
+PrefersNonDefaultGPU=true
+X-KDE-RunOnDiscreteGpu=true
+

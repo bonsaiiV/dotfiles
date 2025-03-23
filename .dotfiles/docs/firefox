@@ -1,0 +1,24 @@
+# extensions
+
+- uBlock Origin
+- NoScript
+	- [*] temporarily set top-level sitez to TRUSTED
+- Vimium C - All By Keyboard
+- KeePassXC-Browser
+- FoxyProxy
+	- setup SOCKS 5 proxy on local host with .ssh/config
+
+# Einstellungen
+## about:prefenrences
+appearance: dark
+Downloads: always ask
+### home
+use firefox home on homepage, new windows and tabs
+deactivate all home content
+### privacy
+[*] strict
+[*] always use private browsing mode
+[*] HTTPS-Only Mode in all windows
+[*] DNS over HTTPS
+## about:config
+privacy.resistFingerprintig    true

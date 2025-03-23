@@ -1,0 +1,5 @@
+Ensure, that /etc/kernel/cmdline exists. Else cmdline.d is ignored
+Kernel commandline parameter in /etc/cmdline.d/[file].conf
+
+1. clocksource.conf:
+tsc=unstable
