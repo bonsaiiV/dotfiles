@@ -7,6 +7,7 @@ return {
         vim.keymap.set('n', '<Leader>g', function() builtin.live_grep() end)
         vim.keymap.set('n', '<Leader>f', function() builtin.find_files() end)
         vim.keymap.set('n', '<Leader>b', function() builtin.buffers() end)
+        vim.keymap.set('n', '<Leader>p', function() builtin.planets() end)
         vim.api.nvim_create_user_command(
             'Buffers',
             function ()

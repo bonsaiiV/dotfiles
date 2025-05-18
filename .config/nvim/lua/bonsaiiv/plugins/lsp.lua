@@ -184,8 +184,9 @@ return {
                     end,
                 },
             }
-            local lspconfig = require 'lspconfig'
-            lspconfig.rust_analyzer.setup {}
+            -- this is broken
+            --local lspconfig = require 'lspconfig'
+            --lspconfig.rust_analyzer.setup {}
         end,
     },
 }
