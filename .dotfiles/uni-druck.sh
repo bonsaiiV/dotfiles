@@ -2,7 +2,8 @@
 printer=""
 ssh_target=""
 count=1
-while getopts ':p:c:' OPTION; do
+sides=1
+while getopts ':p:c:s' OPTION; do
 	case "$OPTION" in
 		c)
 			count=$OPTARG
@@ -29,6 +30,10 @@ while getopts ':p:c:' OPTION; do
 					printer=net
 					;;
 			esac
+			;;
+		s)
+			sides=2
+			;;
 	esac
 done
 shift "$(($OPTIND -1))"
@@ -58,7 +63,11 @@ while [ $# -gt 0 ]; do
 	fi
 	success+="\n\t- \"$1\""
 	echo "printing $1 at $printer $location_info"
-	cat "$1" | ssh $ssh_target "lpr -P $printer -# $count"
+	if [ "$sides" = "2" ]; then
+		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=two-sided-long-edge -# $count"
+	else
+		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=one-sided -# $count"
+	fi
 	#print_command="echo test"
 	#cat "$1" | eval $print_command
 	shift 1
