@@ -1,12 +1,10 @@
 base linux linux-firmware
 doas git fish git-delta
 btrfs-progs networkmanager
-sway wofi xorg-xwayland waybar swaybg swaylock
+sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 grim slurp
 kmonad
 gcc clang binutils
 alacritty xdg-utils firefox
 
 steam pipewire-alsa
-
-linux-headers are required when using dkm drivers
