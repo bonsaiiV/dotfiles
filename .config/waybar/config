@@ -1,38 +1,38 @@
 {
 	"strip_workspace_numbers": "yes",
-    "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray", "network", "cpu", "wireplumber", "battery", "clock"],
-    "sway/window": {
-        "max-length": 50,
-    },
+	"layer": "bottom",
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["tray", "network", "cpu", "wireplumber", "battery", "clock"],
+	"sway/window": {
+		"max-length": 50,
+	},
 	"sway/workspaces": {
 		"format": "{name}",
 		"disable-scroll": true,
 	},
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""],
-    },
+	"battery": {
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""],
+	},
 	"clock": {
 		"format-alt": "{:%a, %d. %b  %H:%M}",
 	},
 	"cpu": {
-        "format": "{usage}% ",
-        "tooltip": false,
-    },
+		"format": "{usage}% ",
+		"tooltip": false,
+	},
 	"wireplumber": {
-
+		"on-click": "pavucontrol",
 	},
 	"network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        //"format-wifi": "{signalStrength}% ",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{essid}: {ipaddr}/{cidr}",
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		//"format-wifi": "{signalStrength}% ",
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "{essid}: {ipaddr}/{cidr}",
 	},
 }
