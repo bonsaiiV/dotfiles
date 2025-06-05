@@ -7,4 +7,6 @@ kmonad
 gcc clang binutils
 alacritty xdg-utils firefox
 
+noto-fonts ttf-noto-nerd
+
 steam pipewire-alsa
