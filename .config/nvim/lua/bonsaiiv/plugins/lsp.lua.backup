@@ -1,0 +1,234 @@
+return {
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        lazy = true,
+        init = function()
+            vim.g.lsp_zero_extend_cmp = 0
+            vim.g.lsp_zero_extend_lspconfig = 0
+        end,
+    },
+    {
+        'williamboman/mason.nvim',
+        config = true,
+        build = function() pcall(vim.cmd.MasonUpdate) end,
+    },--]]
+    {
+        'hrsh7th/nvim-cmp',
+        event = { 'InsertEnter' },
+        dependencies = {
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-calc' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'L3MON4D3/LuaSnip' },
+        },
+        config = function()
+            local lsp_zero, cmp = require 'lsp-zero', require 'cmp'
+            lsp_zero.extend_cmp()
+            local cmp_action = lsp_zero.cmp_action()
+            cmp.setup {
+                preselect = cmp.PreselectMode.None,
+                mapping = {
+                    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+                    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+                    ['<Tab>'] = cmp_action.luasnip_supertab(),
+                    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+                },
+                formatting = {
+                    fields = { 'abbr', 'kind', 'menu' },
+                    format = function(entry, item)
+                        item.menu = ({
+                            luasnip = '□',
+                            calc = '∑',
+                            async_path = '/',
+                            nvim_lua = '∃',
+                            nvim_lsp = '∃',
+                            buffer = '~',
+                            cmdline = ':',
+                        })[entry.source.name]
+                        item.kind = ({
+                            -- NOTE: NF = Nerd Fonts
+                            -- TODO: find fitting symbols for long names
+                            Method = 'Method',
+                            Function = 'λ',
+                            Constructor = 'Constructor',
+                            Field = '', -- NF
+                            Variable = '𝕏',
+                            Class = '⑆',
+                            Interface = '∩',
+                            Module = '', -- NF
+                            Property = '', -- NF
+                            Unit = '£',
+                            Value = '1',
+                            Enum = '∪',
+                            Keyword = 'a',
+                            Snippet = '□',
+                            Color = '#',
+                            File = '', -- NF
+                            Reference = '§',
+                            Folder = '', -- NF
+                            EnumMember = '∈',
+                            Constant = 'π',
+                            Struct = '×',
+                            Event = 'e',
+                            Operator = '±',
+                            TypeParameter = '<T>', -- ToDo: replace with single charater
+                        })[require 'cmp.types.lsp'.CompletionItemKind[entry:get_kind()]]
+                        return item
+                    end,
+                },
+                sources = {
+                    { name = 'luasnip' },
+                    { name = 'calc' },
+                    { name = 'path' },
+                    { name = 'nvim_lua' },
+                    { name = 'nvim_lsp', group_index = 1 },
+                    { name = 'buffer', group_index = 2, keyword_length = 3 },
+                },
+                window = {
+                    completion = {
+                        col_offset = -8,
+                    },
+                },
+                performance = {
+                    max_view_entries = 12,
+                },
+                experimental = {
+                    ghost_text = true,
+                },
+            }
+            cmp.setup.cmdline('/', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' },
+                },
+            })
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+                callback = function(ev)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf })
+                end,
+            })
+        end,
+    },
+    {
+        'neovim/nvim-lspconfig',
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+        event = { 'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'williamboman/mason-lspconfig' },
+        },
+        config = function()
+            vim.keymap.set(
+                'n',
+                '<Leader>d',
+                function() vim.diagnostic.open_float() end
+            )
+            vim.keymap.set(
+                'n',
+                '<Leader>a',
+                function()
+                    local count = 0
+                    local lines = {}
+                    for k, diag in pairs(vim.diagnostic.get(0)) do
+                        count = k
+                        table.insert(lines, tostring(diag.lnum + 1) .. ": " .. diag.message)
+                    end
+                    if count == 0 then
+                        lines = {"no diagnostics in file"}
+                    end
+                    local buf = vim.api.nvim_create_buf(false, true)
+                    vim.api.nvim_buf_set_lines(buf, 0, 0, false, lines)
+                    local win = vim.api.nvim_open_win(buf, true, {relative = 'win', row=3, col=10, width=100, height=12})
+                    vim.wo[win].number = false
+                    vim.wo[win].relativenumber = false
+                    vim.keymap.set('n', '<ESC>', function() vim.api.nvim_win_close(win,false) end, {buffer = 0})
+                end
+            )
+            local lsp_zero = require 'lsp-zero'
+            lsp_zero.extend_lspconfig()
+            lsp_zero.on_attach(function(_, bufnr)
+                lsp_zero.default_keymaps { buffer = bufnr }
+                -- if you don't want autoformat sometimes do `:noa w`
+                -- or check based on buffer filepath
+                --lsp_zero.buffer_autoformat()
+            end)
+            require 'mason-lspconfig'.setup {
+                ensure_installed = {
+                    --'lua_ls',
+                    --'clangd',
+                    'ltex',
+                },
+                handlers = {
+                    lsp_zero.default_setup,
+                    lua_ls = function()
+                        require 'lspconfig'.lua_ls.setup(lsp_zero.nvim_lua_ls {
+                            settings = { Lua = { format = {
+                                enable = true,
+                                defaultConfig = {
+                                    end_of_line = 'lf',
+                                    table_seperator_style = 'comma',
+                                    trailing_table_seperator = 'smart',
+                                    call_arg_parentheses = 'remove',
+                                    quote_style = 'single',
+                                    align_function_params = 'false',
+                                    align_continuous_assign_statement = 'false',
+                                    align_continuous_rect_table_field = 'false',
+                                    align_continuous_line_space = '0',
+                                    align_array_table = 'none',
+                                    align_continuous_inline_comment = 'false',
+                                },
+                            }, }, },
+                        })
+                    end,
+                },
+            }--]]
+            -- rust_analyzer is broken
+            --local lspconfig = require 'lspconfig'
+            --lspconfig.rust_analyzer.setup {}
+
+            -- requires clang to be installed
+            vim.lsp.enable('clangd')
+            -- requires lua-language-server to be installed
+            vim.lsp.enable('lua_ls', {
+                on_init = function(client)
+                    if client.workspace_folders then
+                        local path = client.workspace_folders[1].name
+                        if
+                            path ~= vim.fn.stdpath('config')
+                            and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+                        then
+                            return
+                        end
+                    end
+
+                    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using (most
+                            -- likely LuaJIT in the case of Neovim)
+                            version = 'LuaJIT',
+                            -- Tell the language server how to find Lua modules same way as Neovim
+                            -- (see `:h lua-module-load`)
+                            path = {
+                                'lua/?.lua',
+                                'lua/?/init.lua',
+                            },
+                        },
+                        -- Make the server aware of Neovim runtime files
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                vim.env.VIMRUNTIME
+                            }
+                        }
+                    })
+                end,
+                settings = {
+                  Lua = {}
+                }
+            })
+        end,
+    },
+}

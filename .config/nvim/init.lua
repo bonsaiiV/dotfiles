@@ -54,7 +54,7 @@ api.nvim_create_user_command('Tabs',
     end,
     {desc ='use tabs for indenting'}
 )
-api.nvim_create_user_command('Space',
+api.nvim_create_user_command('Spaces',
     function()
         vim.opt_local.expandtab = true
         vim.opt_local.shiftwidth = 4

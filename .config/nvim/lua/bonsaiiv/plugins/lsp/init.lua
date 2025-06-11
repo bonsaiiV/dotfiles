@@ -1,41 +1,9 @@
-vim.lsp.config['luals'] = {
-    cmd = {'lua-language-server'}
-    ,filetypes = {'lua'}
-    ,root_markers = {  'init.lua', '.luarc.json', '.luarc.jsonc' , '.git' }
-    ,settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT'
-            }
-            ,path = {
-                'lua/?.lua',
-                'lua/?/init.lua',
-            }
-            ,workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME
-                }
-            }
-        }
-    }
-}
-
-vim.lsp.enable('luals')
-
-vim.lsp.config['clangd'] = {
-    cmd = {'clangd', '--compile-commands-dir=build'}
-    ,filetypes = {'c'}
-    ,root_markers = { '.clangd', 'build', 'bin', '.git' }
-}--]]
-
-vim.lsp.enable('clangd')
-
 vim.keymap.set(
     'n',
     '<Leader>d',
     function() vim.diagnostic.open_float() end
 )
+
 vim.keymap.set(
     'n',
     '<Leader>a',
@@ -58,4 +26,11 @@ vim.keymap.set(
         vim.keymap.set('n', '<ESC>', function() vim.api.nvim_win_close(win,false) end, {buffer = 0})
     end
 )
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf })
+    end,
+})
 return {}
