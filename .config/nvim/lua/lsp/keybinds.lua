@@ -26,11 +26,3 @@ vim.keymap.set(
         vim.keymap.set('n', '<ESC>', function() vim.api.nvim_win_close(win,false) end, {buffer = 0})
     end
 )
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-    callback = function(ev)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf })
-    end,
-})
-return {}

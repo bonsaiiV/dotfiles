@@ -17,6 +17,8 @@ return {
     },
     {
         'stevearc/oil.nvim',
-        opts = {},
+        -- this will be passed to the setup function
+        opts = {
+        },
     },
 }

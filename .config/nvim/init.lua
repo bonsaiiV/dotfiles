@@ -42,7 +42,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-require 'lazy'.setup('bonsaiiv/plugins', {
+require 'lazy'.setup('plugins', {
     change_detection = {
         notify = false,
     },
@@ -72,4 +72,5 @@ api.nvim_create_user_command('Scratch',
     end,
     {desc ='creates a scratch buffer'}
 )
-require('bonsaiiv/filetypes')
+require('filetypes')
+require('lsp')

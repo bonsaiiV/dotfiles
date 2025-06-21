@@ -7,6 +7,7 @@ vim.filetype.add(
             comp = 'glsl',
             tese = 'glsl',
             tesc = 'glsl',
+            mp3 = 'mp3',
         },
     }
 )
