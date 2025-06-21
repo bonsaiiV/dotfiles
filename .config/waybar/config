@@ -3,7 +3,7 @@
 	"layer": "bottom",
 	"modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": ["sway/window"],
-	"modules-right": ["tray", "network", "cpu", "wireplumber", "battery", "clock"],
+	"modules-right": ["custom/media", "tray", "network", "cpu", "wireplumber", "battery", "clock"],
 	"sway/window": {
 		"max-length": 50,
 	},
@@ -17,13 +17,16 @@
 	},
 	"clock": {
 		"format-alt": "{:%a, %d. %b  %H:%M}",
+		"tooltip": false,
 	},
 	"cpu": {
 		"format": "{usage}% ",
 		"tooltip": false,
 	},
 	"wireplumber": {
+		"format": "{volume}% ",
 		"on-click": "pavucontrol",
+		"tooltip": false,
 	},
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -34,5 +37,9 @@
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
 		"format-alt": "{essid}: {ipaddr}/{cidr}",
+	},
+	"custom/media": {
+		"interval": 10,
+		"exec": "playerctl metadata --format '{{title}} -- {{artist}}'"
 	},
 }

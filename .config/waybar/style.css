@@ -80,7 +80,6 @@ button:hover {
 #temperature,
 #backlight,
 #network,
-#pulseaudio,
 #wireplumber,
 #custom-media,
 #mode,
@@ -164,16 +163,6 @@ label:focus {
     background-color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
 #wireplumber {
     background-color: #9ff095;
     color: #000000;
@@ -186,7 +175,7 @@ label:focus {
 
 #custom-media {
     background-color: #66cc99;
-    color: #2a5c45;
+    color: #000000;
     min-width: 100px;
 }
 
