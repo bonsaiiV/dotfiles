@@ -1,2 +1,3 @@
 vgcore*
 compile_commands.json
+__pycache__
