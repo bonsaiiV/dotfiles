@@ -1,4 +1,6 @@
 
+session_serialization true
+disable_session_metadata false
 layout {
 	default_tab_template {
 		pane size=1 borderless=true {
