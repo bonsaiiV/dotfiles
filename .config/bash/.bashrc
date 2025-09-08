@@ -2,9 +2,6 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 if [ -f ~/.config/bash/.bash_aliases ]; then
 	. ~/.config/bash/.bash_aliases
 fi
@@ -19,5 +16,4 @@ export PATH="$PATH:/home/bonsaiiv/.local/share/cargo/bin"
 export R_ENVIRON_USER='/home/bonsaiiv/.config/R/Renviron'
 
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\W\[\e[0m\]\$ '
-
 
