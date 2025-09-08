@@ -40,6 +40,6 @@
 	},
 	"custom/media": {
 		"interval": 10,
-		"exec": "playerctl metadata --format '{{title}} -- {{artist}}'"
+		"exec": "playerctl metadata -s --format '{{title}} -- {{artist}}'"
 	},
 }
