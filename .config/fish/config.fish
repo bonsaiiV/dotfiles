@@ -10,6 +10,7 @@ export PATH="$PATH:$HOME/.ghcup/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
 export SHELL="/bin/fish"
 export BROWSER="/usr/bin/firefox"
+export EDITOR="/usr/bin/nvim"
 
 if [ "$(tty)" = "/dev/tty1" ]
 	exec sway
