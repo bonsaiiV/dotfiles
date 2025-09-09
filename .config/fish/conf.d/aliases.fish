@@ -1,5 +1,5 @@
 alias open='xdg-open'
-alias ll='ls -All'
+alias ll='ls -All -h'
 alias vi='nvim'
 alias vim='nvim'
 alias pacinstall='doas pacman -S'
