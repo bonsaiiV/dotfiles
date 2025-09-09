@@ -1,0 +1,5 @@
+dateien:
+/usr/local/share/ca-certificates/telesec.crt
+/etc/Networkmanager/system-connections/eduroam.nmconnection
+Einstellungen: Nutzername, Passwort, wlan-interface
+Permissions: 600
