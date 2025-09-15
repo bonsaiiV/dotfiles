@@ -114,7 +114,7 @@ keybinds clear-defaults=true {
     }
     session {
         //bind "Ctrl o" { SwitchToMode "Normal"; }
-        bind "Alt s" { SwitchToMode "Scroll"; }
+        //bind "Alt s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
@@ -171,7 +171,7 @@ keybinds clear-defaults=true {
     /-shared_except "resize" "locked" {
         bind "Ctrl n" { SwitchToMode "Resize"; }
     }
-    shared_except "scroll" "locked" {
+    /-shared_except "scroll" "locked" {
         bind "Alt s" { SwitchToMode "Scroll"; }
     }
     /-shared_except "session" "locked" {
