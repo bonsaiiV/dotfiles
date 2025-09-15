@@ -22,5 +22,11 @@ function enter -d 'enter a zellij session'
 			return
 		end
 	end
+	if [ $argv[1] = "tmp" ]
+		set tmpdir session
+		mkdir -p /tmp/$tmpdir
+		fish -c "cd /tmp/$tmpdir && zellij"
+		return
+	end
 	echo -e "can not enter \"$argv[1]\": not found"
 end
