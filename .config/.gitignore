@@ -12,6 +12,7 @@
 !r
 !zellij
 !pacman
+!gtk-3.0
 
 !nvim
 nvim/lazy-lock.json
