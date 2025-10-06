@@ -1,0 +1,2 @@
+for working bibtex use older biber version:
+pacman -U https://archive.archlinux.org/packages/b/biber/biber-1%3A2.17-2-any.pkg.tar.zst
