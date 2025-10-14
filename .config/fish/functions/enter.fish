@@ -1,31 +1,48 @@
-function enter -d 'enter a zellij session'
-	for session in (zellij ls --short)
-		if [ $session = $argv[1] ]
-			zellij attach $argv[1]
+function start-tmux -d "start a tmux session in given directory"
+	set name $argv[1]
+	set dir $argv[1]
+	if [ (count $argv) -ge 2 ]
+		set name argv[2]
+	end
+	echo $dir
+	tmux new-session -dc $dir -s $name "nvim ."
+	tmux new-window -dc $dir -t "$name"":1"
+	tmux attach -t $name
+end
+
+function enter -d 'enter a tmux session'
+	set current_sessions (tmux list-sessions -F "#{session_name}" 2> /dev/null)
+	if [ (count $argv) -ge 1 ]
+		set name $argv[1]
+		set p (path resolve "$argv[1]")
+	else
+		set name '.'
+		set p $PWD
+	end
+	for session in $current_sessions
+		if [ $session = $name ]
+			tmux attach -t $name
+			return
+		end
+		if [ $session = $p ]
+			tmux attach -t $p
 			return
 		end
 	end
-	for layout in (ls ~/.config/zellij/layouts | sed -e "s/.kdl//")
-		if [ $layout = $argv[1] ]
-			zellij -n $argv[1] -s $argv[1]
-			return
-		end
-	end
-	for dir in (ls -A)
-		if [ ! -d $dir ] 
-			continue
-		end
-		if [ $dir = $argv[1] ]
-			cd $argv[1]
-			zellij
-			cd -
-			return
-		end
-	end
-	if [ $argv[1] = "tmp" ]
+	if [ $name = "tmp" ]
 		set tmpdir session
 		mkdir -p /tmp/$tmpdir
-		fish -c "cd /tmp/$tmpdir && zellij"
+		start-tmux "/tmp/$tmpdir" tmp
+		return
+	end
+	if path is -d $p
+		start-tmux $p
+		return
+	end
+	set preset (grep -m 1 -e "$name"";" "$HOME/.config/tmux/presets")
+	if [ "$preset" != "" ]
+		set preset_path (echo $preset | sed -e "s/$name"";//")
+		start-tmux $preset_path $name
 		return
 	end
 	echo -e "can not enter \"$argv[1]\": not found"

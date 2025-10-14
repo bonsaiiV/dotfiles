@@ -4,7 +4,7 @@ btrfs-progs networkmanager
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 grim slurp
 kmonad
-gcc clang binutils
+gcc clang binutils tmux
 alacritty xdg-utils firefox
 
 noto-fonts ttf-noto-nerd
