@@ -2,7 +2,7 @@ alias open='xdg-open'
 alias ll='ls -All -h'
 alias vi='nvim'
 alias vim='nvim'
-alias pacinstall='doas pacman -S'
+alias pacinstall='doas pacman -S --needed'
 alias uninstall='doas pacman -Runs'
 alias pacupgrade='doas pacman -Sy && doas pacman -S --needed --noconfirm archlinux-keyring && doas pacman -Su'
 
