@@ -2,11 +2,10 @@ function start-tmux -d "start a tmux session in given directory"
 	set name $argv[1]
 	set dir $argv[1]
 	if [ (count $argv) -ge 2 ]
-		set name argv[2]
+		set name $argv[2]
 	end
-	echo $dir
-	tmux new-session -dc $dir -s $name "nvim ."
-	tmux new-window -dc $dir -t "$name"":1"
+	tmux new-session -dc "$dir" -s $name "nvim ."
+	tmux new-window -dc "$dir" -t "$name"":1"
 	tmux attach -t $name
 end
 
@@ -41,7 +40,7 @@ function enter -d 'enter a tmux session'
 	end
 	set preset (grep -m 1 -e "$name"";" "$HOME/.config/tmux/presets")
 	if [ "$preset" != "" ]
-		set preset_path (echo $preset | sed -e "s/$name"";//")
+		set preset_path (path resolve (echo $preset | sed -e "s|$name"";||" | sed -e "s|\$HOME|$HOME|"))
 		start-tmux $preset_path $name
 		return
 	end
