@@ -1,17 +1,21 @@
 function shaz-info -d 'add metadata to mp3 through shazam'
 	for f in $argv
-		if [ ! -f $argv ]
-			echo "$argv does not exist or is not a regular file"
+		if [ ! -f "$f" ]
+			echo "$f does not exist or is not a regular file"
 			continue
 		end
-		if [ -n "$(mp3info $argv -p "%t" 2>/dev/null)" ]
-			echo "$argv is already tagged, skipping"
+		if [ -n "$(mp3info $f -p "%t" 2>/dev/null)" ]
+			echo "$f is already tagged, skipping"
 			continue
 		end
+
+		# shazam it
 		set response $(songrec recognize $f)
 		set split $(string split ' - ' $response)
 		echo $split[1]
 		echo $split[2]
+
+		# set artist and title
 		mp3info $f -a $split[1] -t $split[2]
 		set newfilename "$split[2].mp3"
 		if [ -e $newfilename ]
