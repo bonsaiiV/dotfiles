@@ -61,6 +61,10 @@ input type:keyboard {
 input type:touchpad {
     natural_scroll disabled
     tap enabled
+    dwt enabled
+}
+input type:tablet_tool {
+    tool_mode * absolute
 }
 ### Key bindings
 #
@@ -155,18 +159,15 @@ set $ws10 10:Chat
     bindsym $mod+Shift+8 move container to workspace number $ws8
     bindsym $mod+Shift+9 move container to workspace number $ws9
     bindsym $mod+Shift+0 move container to workspace number $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+
 #
 # Window stuff
 #
-
-
 #for_window [app_id="Alacritty"] opacity 0.7
 for_window [class="steam"] move container to workspace number $ws8
-for_window [class="Element"] move container to workspace number $ws10
+for_window [app_id="Element"] move container to workspace number $ws10
 #for_window [shell="xwayland"] title_format "%title [XWayland]"
-for_window [app_id="thunderbird"] move container to workspace number $ws9
+for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number $ws9
 #for_window [app_id="firefox"] move container to workspace number $ws2
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Password Required - Mozilla Firefox"] floating enable
@@ -244,6 +245,9 @@ bindsym XF86AudioLowerVolume exec $lowerAudioOut
 bindsym XF86AudioMute exec $toggleAudioOut
 bindsym XF86MonBrightnessDown exec $decreaseBrightness
 bindsym XF86MonBrightnessUp exec $increaseBrightness
+
+
+output eDP-1 position 0 0
 
 include style.conf
 include /etc/sway/config.d/*
