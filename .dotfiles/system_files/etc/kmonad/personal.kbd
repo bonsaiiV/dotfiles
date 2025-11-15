@@ -39,9 +39,9 @@
 	o (tap-hold-next-release 200 o alt)
 	e (tap-hold-next-release 200 e lctl)
 	u (tap-hold-next-release 200 u lsft)
-	q (tap-hold-next-release 200 q ralt)
+	q (tap-hold-next-release 300 q ralt)
 
-	v (tap-hold-next-release 200 v ralt)
+	v (tap-hold-next-release 300 v ralt)
 	h (tap-hold-next-release 200 h rsft)
 	t (tap-hold-next-release 200 t rctl)
 	n (tap-hold-next-release 200 n alt)
