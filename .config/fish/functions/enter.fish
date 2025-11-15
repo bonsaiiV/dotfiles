@@ -5,7 +5,7 @@ function start-tmux -d "start a tmux session in given directory"
 		set name $argv[2]
 	end
 	tmux new-session -dc "$dir" -s $name "nvim ."
-	tmux new-window -dc "$dir" -t "$name"":1"
+	tmux new-window -dc "$dir" -t "$name"":"
 	tmux attach -t $name
 end
 
