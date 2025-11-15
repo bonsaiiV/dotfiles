@@ -1,5 +1,5 @@
 function add-to-playlist -d 'add song to playlist'
-	set playlist_path "$HOME/.config/cmus/playlists/$argv[1]"
+	set playlist_path "$HOME/Documents/media/music/playlists/$argv[1]"
 	if [ ! -e $playlist_path ]
 		echo "Playlist does not exist"
 		read -p "echo 'Create new playlist?[y/N] '" reply
