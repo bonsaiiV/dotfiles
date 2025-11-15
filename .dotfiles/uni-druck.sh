@@ -21,6 +21,11 @@ while getopts ':p:c:s' OPTION; do
 					ssh_target=uran
 					;;
 
+				"ug")
+					printer=oh14ug
+					ssh_target=uran
+					;;
+
 				"fin")
 					printer=oh14eg
 					ssh_target=eins
@@ -61,13 +66,17 @@ while [ $# -gt 0 ]; do
 		shift 1
 		continue
 	fi
-	success+="\n\t- \"$1\""
 	echo "printing $1 at $printer $location_info"
 	if [ "$sides" = "2" ]; then
 		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=two-sided-long-edge -# $count"
 	else
 		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=one-sided -# $count"
 	fi
+	if [ "$status" != 0 ]; then
+		failed+="\n\t- issue with printer detected; stopping"
+		exit 1
+	fi
+	success+="\n\t- \"$1\""
 	#print_command="echo test"
 	#cat "$1" | eval $print_command
 	shift 1
