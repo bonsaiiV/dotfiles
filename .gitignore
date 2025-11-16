@@ -1,11 +1,17 @@
 /*
 !.gitignore
+!.dotfiles
+!.config/
+
+# bash
 !.bash_aliases
 !.bash_profile
 !.bashrc
 !.bash_logout
 
-!.dotfiles
-
-!.config/
-
+# firefox
+!.mozilla/
+.mozilla/*
+!.mozilla/firefox/
+.mozilla/firefox/*
+!.mozilla/firefox/user.js
