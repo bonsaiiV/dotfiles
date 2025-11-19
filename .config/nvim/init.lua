@@ -47,5 +47,27 @@ require 'lazy'.setup('plugins', {
         notify = false,
     },
 })
+
+vim.api.nvim_create_autocmd(
+    {'VimLeavePre'},
+    {
+        pattern = {"*"},
+        callback = function(ev)
+            if vim.v.this_session ~= "" then
+                vim.api.nvim_command('mksession! ' .. vim.v.this_session)
+                return
+            end
+
+            local s_name = os.getenv('SESSION_NAME')
+            local window_num = vim.system({'tmux', 'display-message', '-p', '#I'}):wait()["stdout"]
+            if s_name and window_num == "1\n" then
+                local cache = os.getenv('XDG_CACHE_HOME')
+                local cache_file = cache .. '/sessions/' .. s_name .. '.vim'
+                vim.cmd('mksession! ' ..  cache_file)
+            end
+        end
+    }
+)
+
 require('filetypes')
 require('lsp')

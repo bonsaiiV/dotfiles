@@ -14,7 +14,14 @@ function start-tmux -d "start a tmux session in given directory"
 		end
 	end
 
-	tmux new-session -dc "$dir" $tmux_env_list -s $name "nvim ."
+	set session_file "$XDG_CACHE_HOME/sessions/$name.vim"
+	if [ -f $session_file ]
+		set nvim_param "-S $session_file"
+	else
+		set nvim_param "\."
+	end
+
+	tmux new-session -dc "$dir" $tmux_env_list -s $name "nvim $nvim_param"
 
 	tmux new-window -dc "$dir" -t "$name"":"
 	tmux attach -t $name
