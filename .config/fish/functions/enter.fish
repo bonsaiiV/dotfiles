@@ -4,7 +4,18 @@ function start-tmux -d "start a tmux session in given directory"
 	if [ (count $argv) -ge 2 ]
 		set name $argv[2]
 	end
-	tmux new-session -dc "$dir" -s $name "nvim ."
+
+	set tmux_env_list "-e" "SESSION_NAME=$name"
+	if [ (count $argv) -ge 3 ]
+		if [ (jq 'has("env")' < $argv[3]) = true ]
+			for line in (jq '.["env"].[]' < $argv[3])
+				set tmux_env_list $tmux_env_list "-e" "$(echo $line | sed -e 's|\"||g')"
+			end
+		end
+	end
+
+	tmux new-session -dc "$dir" $tmux_env_list -s $name "nvim ."
+
 	tmux new-window -dc "$dir" -t "$name"":"
 	tmux attach -t $name
 end
@@ -38,10 +49,11 @@ function enter -d 'enter a tmux session'
 		start-tmux $p
 		return
 	end
-	set preset (grep -m 1 -e "$name"";" "$HOME/.config/tmux/presets")
-	if [ "$preset" != "" ]
-		set preset_path (path resolve (echo $preset | sed -e "s|$name"";||" | sed -e "s|\$HOME|$HOME|"))
-		start-tmux $preset_path $name
+	set preset_file "$HOME/.dotfiles/sessions/$name"
+	if [ -f $preset_file ]
+		set preset_path (jq '.["dir"]' < $preset_file  | sed -e "s|\"||g" | sed -e "s|\$HOME|$HOME|")
+		set preset_path (path resolve $preset_path)
+		start-tmux $preset_path $name $preset_file
 		return
 	end
 	echo -e "can not enter \"$argv[1]\": not found"

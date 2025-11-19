@@ -1,0 +1,7 @@
+{
+	"dir": "$HOME/.config"
+	, "env": [
+		"var=val"
+		, "var2=val2"
+	]
+}
