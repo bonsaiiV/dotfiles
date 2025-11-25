@@ -46,7 +46,7 @@ xkb_symbols "basic"  {
     key <AC07>	{[            j,               J,               uacute,               Uacute  ]};
     key <AC08>	{[            k,               K,                U0133,                U0132  ]}; // ĳ, Ĳ
     key <AC09>	{[            l,               L,               oslash,               Oslash  ]};
-    key <AC10>	{[		  colon,       semicolon,               degree,       periodcentered  ]};
+    key <AC10>	{[        colon,       semicolon,               degree,       periodcentered  ]};
     key <AC11>	{[   apostrophe,        quotedbl,           dead_acute,       dead_diaeresis  ]};
 
     key <AB01>	{[            z,               Z,               agrave,               Agrave  ]};
