@@ -7,9 +7,15 @@ function start-tmux -d "start a tmux session in given directory"
 
 	set tmux_env_list "-e" "SESSION_NAME=$name"
 	if [ (count $argv) -ge 3 ]
-		if [ (jq 'has("env")' < $argv[3]) = true ]
-			for line in (jq '.["env"].[]' < $argv[3])
-				set tmux_env_list $tmux_env_list "-e" "$(echo $line | sed -e 's|\"||g')"
+		set session_file $argv[3]
+		if [ (jq 'has("pre")' < $session_file) = true ]
+			for line in (jq -r '.["pre"].[]' < $session_file)
+				$line
+			end
+		end
+		if [ (jq 'has("env")' < $session_file) = true ]
+			for line in (jq -r '.["env"].[]' < $session_file)
+				set tmux_env_list $tmux_env_list "-e" "$line"
 			end
 		end
 	end
@@ -46,7 +52,7 @@ function enter -d 'enter a tmux session'
 			return
 		end
 	end
-	if [ $name = "tmp" ]
+	if [ false -a $name = "tmp" ]
 		set tmpdir session
 		mkdir -p /tmp/$tmpdir
 		start-tmux "/tmp/$tmpdir" tmp
@@ -56,9 +62,9 @@ function enter -d 'enter a tmux session'
 		start-tmux $p
 		return
 	end
-	set preset_file "$HOME/.dotfiles/sessions/$name"
+	set preset_file "$HOME/.dotfiles/sessions/$name.json"
 	if [ -f $preset_file ]
-		set preset_path (jq '.["dir"]' < $preset_file  | sed -e "s|\"||g" | sed -e "s|\$HOME|$HOME|")
+		set preset_path (jq -r '.["dir"]' < $preset_file  |  sed -e "s|\$HOME|$HOME|")
 		set preset_path (path resolve $preset_path)
 		start-tmux $preset_path $name $preset_file
 		return
