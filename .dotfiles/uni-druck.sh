@@ -2,7 +2,7 @@
 printer=""
 ssh_target=""
 count=1
-sides=1
+sides_arg="-o sides=one-sided"
 while getopts ':p:c:s' OPTION; do
 	case "$OPTION" in
 		c)
@@ -37,7 +37,7 @@ while getopts ':p:c:s' OPTION; do
 			esac
 			;;
 		s)
-			sides=2
+			sides_arg="-o sides=two-sided-long-edge"
 			;;
 	esac
 done
@@ -67,11 +67,7 @@ while [ $# -gt 0 ]; do
 		continue
 	fi
 	echo "printing $1 at $printer $location_info"
-	if [ "$sides" = "2" ]; then
-		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=two-sided-long-edge -# $count"
-	else
-		cat "$1" | ssh $ssh_target "lpr -P $printer -o sides=one-sided -# $count"
-	fi
+	cat "$1" | ssh $ssh_target "lpr -P $printer $sides_arg -# $count"
 	if [ "$status" != 0 ]; then
 		failed+="\n\t- issue with printer detected; stopping"
 		exit 1
