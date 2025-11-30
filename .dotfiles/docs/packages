@@ -5,7 +5,7 @@ sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 grim slurp
 kmonad
 gcc clang binutils tmux
-alacritty xdg-utils firefox
+alacritty handlr-regex firefox
 
 noto-fonts ttf-noto-nerd
 
