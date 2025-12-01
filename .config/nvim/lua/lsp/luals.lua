@@ -18,6 +18,10 @@ vim.lsp.config['luals'] = {
                 }
             }
         }
+        -- no idea how to get this to work
+        ,diagnostics = {
+            disable = {"lowercase-global"}
+        }
     }
 }
 
