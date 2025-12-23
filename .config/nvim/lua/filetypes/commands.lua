@@ -15,12 +15,9 @@ vim.api.nvim_create_user_command('Spaces',
 )
 vim.api.nvim_create_user_command('Scratch',
     function()
-        vim.cmd("split")
-        vim.cmd("noswapfile hide enew")
-        vim.opt_local.buftype='nofile'
-        vim.opt_local.bufhidden='hide'
-        vim.opt_local.buflisted=false
-        vim.cmd("lcd ~")
+        local buf = vim.api.nvim_create_buf(false, true)
+        local opts = {win = 0, vertical = true, split = 'right'}
+        local win = vim.api.nvim_open_win(buf, true, opts)
     end,
     {desc ='creates a scratch buffer'}
 )
