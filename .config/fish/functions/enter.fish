@@ -4,6 +4,7 @@ function start-tmux -d "start a tmux session in given directory"
 	if [ (count $argv) -ge 2 ]
 		set name $argv[2]
 	end
+	set name (echo "$name" | sed -e "s/\./_/g")
 
 	set nvim_max_session_age "-1 hour"
 
