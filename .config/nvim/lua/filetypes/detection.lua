@@ -8,6 +8,7 @@ vim.filetype.add(
             tese = 'glsl',
             tesc = 'glsl',
             mp3 = 'mp3',
+            sage = 'python',
         },
     }
 )

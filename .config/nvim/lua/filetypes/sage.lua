@@ -25,6 +25,8 @@ vim.api.nvim_create_autocmd(
     {
         pattern = {"*.sage"},
         callback = function()
+            vim.opt.expandtab = true
+            vim.opt.shiftwidth = 1
             vim.api.nvim_create_user_command('Run',
                 run_sage,
                 {desc ='run buffer code in sage math'}
