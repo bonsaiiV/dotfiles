@@ -44,6 +44,10 @@ function start-tmux -d "start a tmux session in given directory"
 end
 
 function enter -d 'enter a tmux session'
+	if printf "%s" $TERM | grep tmux 1> /dev/null
+		echo "already inside tmux"
+		return
+	end
 	set current_sessions (tmux list-sessions -F "#{session_name}" 2> /dev/null)
 	if [ (count $argv) -ge 1 ]
 		set name $argv[1]
