@@ -1,0 +1,12 @@
+#
+#~/.bash_display
+#
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+	# device should be set in bash_device called by bashrc
+	if [ $DEVICE = "Desktop" ]; then
+		export WLR_NO_HARDWARE_CURSORS=1
+		exec sway --unsupported-gpu 2> $HOME/.cache/sway/log-$(date +%F_%T)
+	else
+		exec sway 2> $HOME/.cache/sway/log-$(date +%F_%T)
+	fi
+fi
