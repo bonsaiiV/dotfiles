@@ -12,9 +12,31 @@
 ## about:prefenrences
 appearance: dark
 Downloads: always ask
+
 ### home
 use firefox home on homepage, new windows and tabs
 deactivate all home content
+
+### search
+- default search engine:
+	- url: https://noai.duckduckgo.com/
+	- POST data:
+		- q=%s         ; search query
+		- kg=p         ; use post request for future searches
+		- kc=-1        ; infinite scroll images: off
+		- kav=-1       ; infinite scroll: off
+		- kz=-1        ; short summary: off
+		- kaj=m        ; units: metric
+		- kj=7750AA    ; header color
+		- k7=222222    ; background color
+		- kae=d        ; darkmode
+		- s=s          ; text size: small
+	- unused:
+		- kbg=-1       ; duck.ai: off, already provided by noai.ddg
+		- kbe=0        ; search assist: never, already provided by noai.ddg
+		- kbj=1        ; hide-ai images: on, already provided by noai.ddg
+
+
 ### privacy
 [*] strict
 [*] always use private browsing mode
