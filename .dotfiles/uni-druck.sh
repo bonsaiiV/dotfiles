@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 printer=""
 ssh_target=""
 count=1
