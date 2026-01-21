@@ -6,12 +6,19 @@ project(
   default_options : ['warning_level=3'],
 )
 
+include_dir = include_directories('include')
+
 dependencies = [
+  dependency('wireplumber-0.5'),
 ]
+
+sources = []
+subdir('src')
 
 exe = executable(
   'main',
-  'src/main.c',
+  sources,
   dependencies : dependencies,
+  include_directories : include_dir,
   install : true,
 )
