@@ -20,7 +20,10 @@ void print_battery(void) {
 	snprintf(battery_fulltext, len_battery_fulltext, "%ld%%", 100 * atoi(file_buf)/charge_full);
 	printf("{");
 	printf("\"full_text\": \"%s\"", battery_fulltext);
-	printf(",\"border\": \"#55cc55\"");
+	printf(",\"background\": \"#323232\"");
+	printf(",\"border\": \"#323232\"");
+	printf(",\"separator\": false");
+	printf(",\"separator_block_width\": 0");
 	printf("},\n");
 }
 

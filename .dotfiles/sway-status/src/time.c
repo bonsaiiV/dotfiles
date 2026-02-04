@@ -13,7 +13,12 @@ void print_time(void) {
 	strftime(date_fulltext, sizeof(date_fulltext), "%Y-%m-%d %H:%M:%S", currentTime_local);
 	printf("{");
 	printf("\"full_text\": \"%s\"", date_fulltext);
-	printf(",\"background\": \"#337733\"");
+	//printf(",\"background\": \"#337733\"");
+	printf(",\"background\": \"#323232\"");
+	printf(",\"border\": \"#323232\"");
+	printf(",\"border_left\": 10");
+	printf(",\"separator\": false");
+	printf(",\"separator_block_width\": 0");
 	printf("},\n");
 }
 
