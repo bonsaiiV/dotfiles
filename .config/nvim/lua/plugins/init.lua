@@ -14,7 +14,7 @@ return {
                 },
             },
         }
-    },
+    },--]]
     {
         'stevearc/oil.nvim',
         -- this will be passed to the setup function
