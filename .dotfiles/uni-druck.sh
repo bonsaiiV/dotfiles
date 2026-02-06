@@ -68,9 +68,9 @@ while [ $# -gt 0 ]; do
 	fi
 	echo "printing $1 at $printer $location_info"
 	cat "$1" | ssh $ssh_target "lpr -P $printer $sides_arg -# $count"
-	if [ "$status" != 0 ]; then
+	if [ "$?" != 0 ]; then
 		failed+="\n\t- issue with printer detected; stopping"
-		exit 1
+		break
 	fi
 	success+="\n\t- \"$1\""
 	#print_command="echo test"
