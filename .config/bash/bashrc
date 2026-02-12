@@ -15,6 +15,7 @@ alias grep='grep --color=auto'
 
 export EDITOR='nvim'
 export PYTHON_HISTORY='/home/bonsaiiv/.cache/python_history'
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\W\[\e[0m\]\$ '
 
