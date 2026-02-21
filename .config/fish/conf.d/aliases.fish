@@ -8,6 +8,6 @@ alias pacupgrade='doas pacman -Sy && doas pacman -S --needed --noconfirm archlin
 alias dotgit='git --git-dir={$HOME}/.dotfiles/.git --work-tree={$HOME}'
 alias sudo='sl -d10lFaw'
 alias xprop='echo "This is sway, try: \"swaymsg -t get_tree\""'
-alias m-usb='mount /home/bonsaiiv/usb'
-alias u-usb='umount /home/bonsaiiv/usb'
+alias m-usb='udisksctl mount -b'
+alias u-usb='idisksctl umount -b'
 alias hl='hledger --strict'
