@@ -2,7 +2,7 @@ base linux linux-firmware
 doas git fish git-delta
 btrfs-progs networkmanager
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
-grim slurp
+grim slurp udisks2
 kmonad
 gcc clang binutils tmux
 alacritty handlr-regex firefox
