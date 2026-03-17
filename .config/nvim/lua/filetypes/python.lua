@@ -1,10 +1,13 @@
-local function run_sage()
-    local b_lines = vim.api.nvim_buf_get_lines(0, 0, -1, true)
-    local result = vim.system({'sage', '-c', table.concat(b_lines, '\n')}, {}):wait()
+local function run_python()
+    local result = vim.system({'python', vim.api.nvim_buf_get_name(0)}, {}):wait()
     local lines = {}
     if result.code == 0 then
-        for s in result.stdout:gmatch("[^\r\n]+") do
-            table.insert(lines, s)
+        if string.len(result.stdout) == 0 then
+            table.insert(lines, "no output generated")
+        else
+            for s in result.stdout:gmatch("[^\r\n]+") do
+                table.insert(lines, s)
+            end
         end
     else
         for s in result.stderr:gmatch("[^\r\n]+") do
@@ -23,17 +26,17 @@ end
 vim.api.nvim_create_autocmd(
     {'BufEnter'},
     {
-        pattern = {"*.sage"},
+        pattern = {"*.py"},
         callback = function()
             vim.opt.expandtab = true
             vim.opt.shiftwidth = 1
             vim.api.nvim_create_user_command('Run',
-                run_sage,
-                {desc ='run buffer code in sage math'}
+                run_python,
+                {desc ='run buffer code in python'}
             )
             vim.keymap.set('n', '<Leader>r',
-                run_sage,
-                {desc ='run buffer code in sage math'}
+                run_python,
+                {desc ='run buffer code in python'}
             )
         end
     }
