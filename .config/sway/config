@@ -230,6 +230,8 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
+    bindsym Equal resize set width 50 ppt
+
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -251,7 +253,12 @@ bindsym XF86MonBrightnessDown exec $decreaseBrightness
 bindsym XF86MonBrightnessUp exec $increaseBrightness
 
 
-output eDP-1 position 0 0
+output eDP-1 {
+	position 1920 0
+}
+output DP-4 {
+	position 0 0
+}
 
 include style.conf
 include /etc/sway/config.d/*
