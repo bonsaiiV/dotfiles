@@ -7,6 +7,7 @@
 !fish
 !git
 !gtk-3.0
+!mako
 !mimeapps.list
 !nvim
 nvim/lazy-lock.json

@@ -1,0 +1,6 @@
+default-timeout=5000
+output=eDP-1
+border-color=#FFFFFFA0
+background-color=#00800080
+anchor=center-right
+border-radius=5
