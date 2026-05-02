@@ -175,7 +175,6 @@ for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number
 #for_window [app_id="firefox"] move container to workspace number $ws2
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Password Required - Mozilla Firefox"] floating enable
-assign [app_id="discord"] $ws9
 #
 # Layout stuff:
 #
@@ -254,9 +253,12 @@ bindsym XF86MonBrightnessUp exec $increaseBrightness
 
 
 output eDP-1 {
-	position 1920 0
+	position 2560 0
 }
 output DP-4 {
+	position 0 0
+}
+output DP-5  {
 	position 0 0
 }
 
