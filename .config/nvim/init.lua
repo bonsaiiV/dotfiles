@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 local opt = vim.opt
 local api = vim.api
 
+opt.modeline = false
 opt.shell='/bin/fish'
 
 opt.number        = true
