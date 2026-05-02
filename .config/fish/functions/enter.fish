@@ -144,12 +144,12 @@ function enter -d 'enter a tmux session'
 	end
 
 	# if a matching session exists, attach to it
-	if tmux has -t $session_name 2> /dev/null
-		tmux attach -t $session_name
+	if tmux has -t "=$session_name" 2> /dev/null
+		tmux attach -t "=$session_name"
 		return
 	end
-	if tmux has -t $session_path 2> /dev/null
-		tmux attach -t $session_path
+	if tmux has -t "=$session_path" 2> /dev/null
+		tmux attach -t "$session_path"
 		return
 	end
 
