@@ -1,0 +1,11 @@
+(defcfg
+  input (device-file "keyboard")
+  output (uinput-sink "Presenter by kmonad")
+  fallthrough false
+)
+(defsrc
+	pgup pgdn b f5
+)
+(deflayer navigation
+	left right pgdn pgup
+)

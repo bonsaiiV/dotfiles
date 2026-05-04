@@ -20,7 +20,7 @@
 (defsrc :name base
 	grv  1 2 3 4  9 0 - = ent
 	tab  q w e r  i o p [ ]
-	caps a s d f  k l ; ' \
+	caps bspc s d f  k l ; ' \
 
 	      z x c    , . /
 				     up
@@ -29,7 +29,7 @@
 (defsrc
 	grv  1 2 3 4  9 0 - = ent
 	tab  q w e r  i o p [ ]
-	caps a s d f  k l ; ' \
+	caps lsft s d f  k l ; ' \
 
 	      z x c    , . /
 )
@@ -39,7 +39,7 @@
 	o (tap-hold-next-release 200 o alt)
 	e (tap-hold-next-release 200 e lctl)
 	u (tap-hold-next-release 200 u lsft)
-	q (tap-hold-next-release 300 q ralt)
+	/ (tap-hold-next-release 300 / ralt)
 
 	v (tap-hold-next-release 300 v ralt)
 	h (tap-hold-next-release 200 h rsft)
@@ -73,7 +73,7 @@
 (deflayer dvorak :source base
 	 '  ,  .  p y  f  g  c  r  l
 	@a @o @e @u i  d @h @t @n @s
-	 / @q  j  k x  b  m  w @v  z
+	 @/ q  j  k x  b  m  w @v  z
 
 	@esc @spc @tab  @ent @bspc @del
 					     up

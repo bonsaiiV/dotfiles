@@ -1,0 +1,8 @@
+[Unit]
+Description=Remapping of presenter for use with decker
+DefaultDependencies=no
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/kmonad -i 'device-file "%I"' %E/kmonad/presenter.kbd
+Nice=-20

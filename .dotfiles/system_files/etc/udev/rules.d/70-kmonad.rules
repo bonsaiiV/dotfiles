@@ -8,6 +8,18 @@ DRIVERS=="atkbd", \
 TAG+="systemd", \
 ENV{SYSTEMD_WANTS}+="dotfiles-kmonad@$result.service"
 
+ATTRS{name}=="Dell KB216 Wired Keyboard", \
+TAG+="systemd", \
+ENV{SYSTEMD_WANTS}+="dotfiles-kmonad@$result.service"
+
+ATTRS{name}=="Logitech K540/K545", \
+TAG+="systemd", \
+ENV{SYSTEMD_WANTS}+="dotfiles-kmonad@$result.service"
+
+ATTRS{name}=="Kensington Wireless Presenter with Laser Pointer", \
+TAG+="systemd", \
+ENV{SYSTEMD_WANTS}+="presenter-kmonad@$result.service"
+
 #ATTRS{bInterfaceClass}=="03", \
 #ATTRS{bInterfaceSubClass}=="01", \
 #ATTRS{bInterfaceProtocol}=="01", \
