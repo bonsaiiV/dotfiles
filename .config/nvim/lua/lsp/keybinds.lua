@@ -9,7 +9,11 @@ local function all_diagnostics()
     local diagnostics = vim.diagnostic.get(0)
     for k, diag in pairs(diagnostics) do
         count = k
-        table.insert(lines, "\\" .. tostring(k) .. " " .. tostring(diag.lnum + 1) .. ": " .. diag.message)
+        local line_start = tostring(diag.lnum + 1)
+        for diag_line in string.gmatch(diag.message, "[^\n]+") do
+            table.insert(lines, "\\" .. tostring(k) .. " " .. line_start  .. ": " .. diag_line)
+            line_start = "\t"
+        end
     end
     if count == 0 then
         lines = {"you made a huge mistake cominig here"}
