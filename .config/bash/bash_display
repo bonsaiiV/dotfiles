@@ -2,6 +2,7 @@
 #~/.bash_display
 #
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+	mkdir -p $HOME/.cache/sway/
 	# device should be set in bash_device called by bashrc
 	if [ $DEVICE = "Desktop" ]; then
 		export WLR_NO_HARDWARE_CURSORS=1
