@@ -1,10 +1,10 @@
 base linux linux-firmware
-doas git fish git-delta
+opendoas git fish git-delta man-db
 btrfs-progs networkmanager
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 grim slurp udisks2
 kmonad
-gcc clang binutils tmux
+gcc clang binutils tmux meson cmake
 alacritty handlr-regex firefox
 
 noto-fonts ttf-noto-nerd
