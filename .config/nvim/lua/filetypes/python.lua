@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd(
         pattern = {"*.py"},
         callback = function()
             vim.opt.expandtab = true
-            vim.opt.shiftwidth = 1
+            --vim.opt.shiftwidth = 1
             vim.api.nvim_create_user_command('Run',
                 run_python,
                 {desc ='run buffer code in python'}
