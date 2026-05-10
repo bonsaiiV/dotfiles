@@ -25,5 +25,4 @@ nvim/lazy-lock.json
 !tmux
 !waybar
 !wofi
-
-
+!xdg-desktop-portal-wlr
