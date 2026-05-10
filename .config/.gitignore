@@ -1,4 +1,4 @@
-/*
+*
 !.gitignore
 !alacritty
 !bash
@@ -9,8 +9,16 @@
 !gtk-3.0
 !mako
 !mimeapps.list
+
+!mozilla
+mozilla/*
+!mozilla/firefox/
+mozilla/firefox/*
+!mozilla/firefox/user.js
+
 !nvim
 nvim/lazy-lock.json
+
 !pacman
 !r
 !sway
