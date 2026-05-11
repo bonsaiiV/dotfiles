@@ -1,0 +1,24 @@
+{
+	"policies": {
+		"ExtensionSettings": {
+			"uBlock0@raymondhill.net": {
+				"installation_mode": "force_installed",
+				"private_browsing": true,
+				"default_area": "navbar",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi"
+			},
+			"vimium-c@gdh1995.cn": {
+				"installation_mode": "force_installed",
+				"private_browsing": true,
+				"default_area": "menupanel",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/vimium-c@gdh1995.cn/latest.xpi"
+			},
+			"keepassxc-browser@keepassxc.org": {
+				"installation_mode": "force_installed",
+				"private_browsing": true,
+				"default_area": "menupanel",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser@keepassxc.org/latest.xpi"
+			}
+		}
+	}
+}

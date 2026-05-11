@@ -53,3 +53,11 @@ browser.tabs.groups.smart.enabled
 browser.tabs.groups.smart.userEnabled
 extensions.ml.enabled
 sidebar.revamp
+
+# policies
+			"zotero@chnm.gmu.edu": {
+				//"installation_mode": "force_installed",
+				//"private_browsing": true,
+				//"default_area": "navbar",
+				//"install_url": "https://download.zotero.org/connector/firefox/release/Zotero_Connector-latest.xpi"
+			},

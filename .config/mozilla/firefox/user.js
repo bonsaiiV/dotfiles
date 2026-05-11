@@ -7,6 +7,9 @@ user_pref("privacy.fingerprintingProtection", true);
 user_pref("privacy.query_stripping.enabled", true);
 user_pref("browser.contentblocking.category", "strict");
 
+user_pref("signon.rememberSignons", false);
+user_pref("browser.formfill.enable", false);
+
 // https only mode
 user_pref("dom.security.https_only_mode", true);
 user_pref("services.sync.prefs.sync-seen.dom.security.https_only_mode", true);
