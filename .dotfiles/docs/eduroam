@@ -1,3 +1,4 @@
+service: NetworkManager
 dateien:
 /usr/local/share/ca-certificates/telesec.crt
 /etc/Networkmanager/system-connections/eduroam.nmconnection
