@@ -26,3 +26,4 @@ nvim/lazy-lock.json
 !waybar
 !wofi
 !xdg-desktop-portal-wlr
+!xdg-desktop-portal-wlr/config
