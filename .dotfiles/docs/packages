@@ -15,8 +15,11 @@ git-delta
 handlr-regex firefox
 
 noto-fonts ttf-noto-nerd
-
 thunderbird element keepassxc
+
+zip unzip wget usbutils
+
+# optional
 steam pipewire-alsa
 
 
