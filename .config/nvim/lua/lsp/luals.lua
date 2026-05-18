@@ -18,9 +18,10 @@ vim.lsp.config['luals'] = {
                 }
             }
         }
-        -- no idea how to get this to work
         ,diagnostics = {
-            disable = {"lowercase-global"}
+            disable = {"lowercase-global"},
+            -- no idea how to get this to work
+            workspaceEvent = "OnSave",
         }
     }
 }
