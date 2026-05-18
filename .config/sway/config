@@ -15,9 +15,9 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu ~/.config/sway/menu.sh | xargs swaymsg exec --
 set $menu wofi
-set $lowerAudioOut pamixer -d 5
-set $raiseAudioOut pamixer -i 5
-set $toggleAudioOut pamixer -t
+set $lowerAudioOut wpctl set-volume @DEFAULT_SINK@ 5%-
+set $raiseAudioOut wpctl set-volume @DEFAULT_SINK@ 5%+
+set $toggleAudioOut wpctl set-mute @DEFAULT_SINK@ toggle
 set $decreaseBrightness brightnessctl s 10%-
 set $increaseBrightness brightnessctl s 10%+
 
