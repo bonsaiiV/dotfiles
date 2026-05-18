@@ -1,11 +1,11 @@
 {
-	"dir": "$HOME/Documents/notes"
+	"dir": "."
 	,"pre": [
-		"mkdir -p /tmp/$tmpdir"
+		"echo \"nothing\""
 	]
 	, "env": [
-		"var=val"
+		"var1=val1"
 		, "var2=val2"
 	]
-	, "nvim_max_session_age" : "10 minutes"
+	, "nvim_max_session_age" : "1 hour"
 }
