@@ -1,6 +1,8 @@
 *
 !.gitignore
 !config.json
-!tmp.json
 !dotfiles.json
+!notes.json
+!template.json
+!tmp.json
 !usb.json

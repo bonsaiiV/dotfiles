@@ -1,0 +1,4 @@
+{
+	"dir": "$HOME/Documents/notes"
+	, "nvim_max_session_age" : "10 minutes"
+}
