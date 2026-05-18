@@ -1,6 +1,6 @@
 # on pacstrap
 base linux linux-firmware *-ucode
-opendoas git man-db openssh
+opendoas git man-db man-pages openssh
 btrfs-progs networkmanager
 plymouth
 
@@ -8,7 +8,8 @@ plymouth
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 alacritty fish udisks2
 grim slurp brighnessctl wireplumber
-gcc clang binutils tmux jq meson pkgconf cmake
+gcc clang tmux jq meson
+pkgconf cmake make fakeroot debugedit binutils patch
 kmonad
 git-delta
 handlr-regex firefox
