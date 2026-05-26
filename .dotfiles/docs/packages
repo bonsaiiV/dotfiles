@@ -20,8 +20,16 @@ thunderbird element keepassxc
 zip unzip wget usbutils
 
 # optional
+libreoffice
 steam pipewire-alsa
 
 
 # aur
 zotero-bin zulip-desktop
+
+
+
+# python
+
+python
+python-matplotlib python-networkx
