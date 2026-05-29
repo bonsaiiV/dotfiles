@@ -60,7 +60,7 @@ input type:keyboard {
 input type:touchpad {
     natural_scroll disabled
     tap enabled
-    dwt enabled
+    dwt disabled
 }
 input type:tablet_tool {
     tool_mode * absolute
