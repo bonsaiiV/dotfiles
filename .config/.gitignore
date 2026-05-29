@@ -22,6 +22,8 @@ nvim/lazy-lock.json
 !pacman
 !r
 !sway
+!swayidle
+!swayidle/config
 !tmux
 !waybar
 !wofi

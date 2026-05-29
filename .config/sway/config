@@ -24,11 +24,7 @@ set $increaseBrightness brightnessctl s 10%+
 ### Idle configuration
 #
 set $lock swaylock -c 330055
-exec always swayidle -w \
-    timeout 570 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
-exec swayidle -w timeout 600 $lock
+exec_always swayidle -w
 exec keepassxc 1> /dev/null 2> /dev/null
 exec thunderbird 1> /dev/null 2> /dev/null
 exec nmcli c monitor eduroam | ~/.dotfiles/mute-in-eduroam.sh
