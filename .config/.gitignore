@@ -1,13 +1,20 @@
 *
 !.gitignore
 !alacritty
+!alacritty/*
 !bash
-!bash/.bashrc
+!bash/*
+bash/bash_device
 !cabal
+!cabal/*
 !fish
+!fish/*
 !git
+!git/*
 !gtk-3.0
+!gtk-3.0/*
 !mako
+!mako/*
 !mimeapps.list
 
 !mozilla
@@ -17,15 +24,20 @@ mozilla/firefox/*
 !mozilla/firefox/user.js
 
 !nvim
+!nvim/*
 nvim/lazy-lock.json
 
 !pacman
+!pacman/*
 !r
+!r/*
 !sway
+!sway/*
 !swayidle
-!swayidle/config
+!swayidle/*
 !tmux
-!waybar
+!tmux/*
 !wofi
+!wofi/*
 !xdg-desktop-portal-wlr
-!xdg-desktop-portal-wlr/config
+!xdg-desktop-portal-wlr/*
