@@ -15,13 +15,15 @@ git-delta
 handlr-regex firefox
 
 noto-fonts ttf-noto-nerd
-thunderbird element keepassxc
+thunderbird element
+keepassxc qt5-wayland qt6-wayland
 
 zip unzip wget usbutils
 
 # optional
 libreoffice
 steam pipewire-alsa
+cups nss-mdns
 
 
 # aur
