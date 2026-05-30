@@ -1,1 +1,10 @@
 filters are located at .thunderbird/<hash>.default-release/ImapMail/<account>/msgFilterRules.dat
+
+force plaintext:
+- settings
+- search for "config editor"
+- search for compose
+- set to false
+	- mail.html_compose
+	- mail.identity.default.compose_html
+	- mail.identity.id<x>.compose_html
