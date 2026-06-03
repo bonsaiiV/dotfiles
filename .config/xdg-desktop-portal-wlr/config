@@ -1,4 +1,11 @@
+[preferred]
+default=gtk
+org.freedesktop.impl.portal.ScreenCast=wlr
+org.freedesktop.impl.portal.Screenshot=wlr
+org.freedesktop.impl.portal.Inhibit=none
+
 [screencast]
 ;chooser_type=simple
 ;chooser_cmd=printf "Window: c746512916c5d95b2a809b6d8630c36d"
 ;chooser_cmd=printf "Monitor: HDMI-A-1"
+;TODO: better
