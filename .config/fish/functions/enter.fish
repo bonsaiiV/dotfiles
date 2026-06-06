@@ -148,18 +148,23 @@ function enter -d 'enter a tmux session'
 		tmux attach -t "=$session_name"
 		return
 	end
-	if tmux has -t "=$session_path" 2> /dev/null
-		tmux attach -t "$session_path"
+
+	# tmux replaces '.' in the name of a session, that is newly created by '_'
+	# we need to do that before attempting to connect to the session
+	# we also need to do this later when creating the session
+	#set session_path_no_dots (echo $session_path | sed -e "s/\./_/g" | sed -e "s:/:_:g")
+	set session_path_no_dots (echo $session_path | sed -e "s/\./_/g")
+	if tmux has -t "=$session_path_no_dots" 2> /dev/null
+		tmux attach -t "$session_path_no_dots"
 		return
 	end
 
 	# create new session at given location
 	# prefer this over presets as it matches more strict
-	set session_path_no_dots (echo $session_path | sed -e "s/\./_/g")
 	# why he fuck? did i do this maybe it fixed something see, if i need it again
 	#if path is -d $session_path_no_dots
 	if path is -d $session_path
-		start-tmux-by-path $session_path (echo $session_path_no_dots | sed -e "s:/:_:g")
+		start-tmux-by-path $session_path $session_path_no_dots 
 		return
 	end
 
