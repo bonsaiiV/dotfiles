@@ -156,7 +156,9 @@ function enter -d 'enter a tmux session'
 	# create new session at given location
 	# prefer this over presets as it matches more strict
 	set session_path_no_dots (echo $session_path | sed -e "s/\./_/g")
-	if path is -d $session_path_no_dots
+	# why he fuck? did i do this maybe it fixed something see, if i need it again
+	#if path is -d $session_path_no_dots
+	if path is -d $session_path
 		start-tmux-by-path $session_path (echo $session_path_no_dots | sed -e "s:/:_:g")
 		return
 	end
