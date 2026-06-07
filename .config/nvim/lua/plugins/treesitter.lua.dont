@@ -10,7 +10,7 @@ return {
                 'diff',
                 'fish', 'bash', 'awk',
                 'lua', 'rust',
-                'markdown',
+                --'markdown',
                 'ledger',
                 'make',
                 'java',
