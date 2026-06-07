@@ -23,8 +23,8 @@ set $increaseBrightness brightnessctl s 10%+
 
 ### Idle configuration
 #
-set $lock swaylock -c 330055
-exec_always swayidle -w
+#set $lock swaylock -c 330055 -f
+exec swayidle -w
 exec keepassxc 1> /dev/null 2> /dev/null
 exec thunderbird 1> /dev/null 2> /dev/null
 exec nmcli c monitor eduroam | ~/.dotfiles/mute-in-eduroam.sh
