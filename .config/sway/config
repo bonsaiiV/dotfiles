@@ -251,7 +251,7 @@ output eDP-1 {
 output DP-4 {
 	position -2560 0
 }
-output DP-5 {
+output DP-7 {
 	position -2560 0
 }
 
