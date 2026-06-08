@@ -1,0 +1,8 @@
+% to continue the enumeration, you can use the cenumerate environment
+\newcounter{tmpenumi}
+\newenvironment{cenumerate}{%
+\setcounter{tmpenumi}{\value{enumi}}%
+\begin{enumerate}%
+\setcounter{enumi}{\value{tmpenumi}}%
+}{\end{enumerate}}
+

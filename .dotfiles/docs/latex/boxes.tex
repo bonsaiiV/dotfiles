@@ -1,0 +1,12 @@
+% https://en.wikibooks.org/wiki/LaTeX/Boxes
+% parboxes can be zerowidth, while containing other stuff
+% this is useful to layer multiple things or when measurements need to ignore some text
+% use this file to mess around
+\documentclass{standalone}
+\begin{document}
+
+%\parbox[pos: t, b, c][height][contentpos: c, t, b]{width}{text}
+\parbox{0px}{\framebox{\strut\hspace{1cm}\strut}}
+Hello there
+
+\end{document}
