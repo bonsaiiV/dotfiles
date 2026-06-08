@@ -34,6 +34,10 @@ while getopts ':p:c:s' OPTION; do
 				"net")
 					printer=net
 					;;
+
+				"ls11")
+					printer=ls11ptr1
+					;;
 			esac
 			;;
 		s)
