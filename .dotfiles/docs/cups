@@ -1,0 +1,6 @@
+Setup printer discovery over network
+- install cups, nss-mdns
+- enable+start cups.service
+- enable+start avahi-daemon.service
+- /etc/nsswitch.conf:
+	- hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
