@@ -24,7 +24,6 @@ mozilla/firefox/*
 !mozilla/firefox/user.js
 
 !nvim
-!nvim/*
 !nvim/**
 nvim/lazy-lock.json
 
