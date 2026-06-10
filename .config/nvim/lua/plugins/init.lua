@@ -21,7 +21,13 @@ return {
         opts = {
             keymaps = {
                 -- TODO: configure keymaps
-                ["gz"] = {},
+                ["<Leader>y"] = {function()
+                    local oil = require('oil')
+                    local utils = require('utils')
+                    local entry = oil.get_cursor_entry()
+                    vim.fn.setreg('', 'file://' .. oil.get_current_dir() .. entry.name)
+                    -- utils.print_table(entry)
+                end, mode = "n"},
             }
         },
     },
