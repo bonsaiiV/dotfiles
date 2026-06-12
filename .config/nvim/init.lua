@@ -30,24 +30,7 @@ vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'
 vim.cmd 'colorscheme desert'
 api.nvim_set_hl(0, "MatchParen" , {bg="grey", fg="lightgreen" } )
 
--- plugin setup using lazy
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-require 'lazy'.setup('plugins', {
-    change_detection = {
-        notify = false,
-    },
-})
+require('plugins')
 
 vim.api.nvim_create_autocmd(
     {'VimLeavePre'},
