@@ -25,7 +25,7 @@ mozilla/firefox/*
 
 !nvim
 !nvim/**
-nvim/lazy-lock.json
+nvim/nvim-pack-lock.json
 
 !pacman
 !pacman/*
