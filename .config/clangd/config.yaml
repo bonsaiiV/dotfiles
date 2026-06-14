@@ -1,0 +1,5 @@
+CompileFlags:
+  # Does not seem to work
+  #CompilationDatabase: build/
+  Remove: ["-mno-direct-extern-access"]
+  Add: ["--std=gnu11"]

@@ -7,6 +7,8 @@
 bash/bash_device
 !cabal
 !cabal/*
+!clangd
+!clangd/*
 !fish
 !fish/*
 !git
