@@ -1,4 +1,4 @@
-vim.lsp.config['luals'] = {
+vim.lsp.config('luals', {
     cmd = {'lua-language-server'}
     ,filetypes = {'lua'}
     ,root_markers = {  'init.lua', '.luarc.json', '.luarc.jsonc' , '.git' }
@@ -6,24 +6,29 @@ vim.lsp.config['luals'] = {
         Lua = {
             runtime = {
                 version = 'LuaJIT'
-            }
-            ,path = {
+            },
+            path = {
                 'lua/?.lua',
                 'lua/?/init.lua',
-            }
-            ,workspace = {
+            },
+            workspace = {
                 checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME
                 }
+            },
+            diagnostics = {
+                -- Don't disable all lowercase-global diagnostics
+                -- Instead list lowercase globals explicitly with:
+                --[[globals = {
+                    'random_string',
+                },--]]
+
+                -- no idea how to get this to work
+                workspaceEvent = "OnSave",
             }
         }
-        ,diagnostics = {
-            disable = {"lowercase-global"},
-            -- no idea how to get this to work
-            workspaceEvent = "OnSave",
-        }
     }
-}
+})
 
 vim.lsp.enable('luals')
