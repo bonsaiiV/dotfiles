@@ -23,7 +23,7 @@ local function all_diagnostics()
     vim.api.nvim_buf_set_lines(
         buf
         , 0
-        , 0
+        , -1
         , false
         , lines
     )
