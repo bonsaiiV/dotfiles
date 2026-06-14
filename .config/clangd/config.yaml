@@ -1,5 +1,11 @@
+---
+If:
+  PathExclude: [.*\.cpp]
 CompileFlags:
+  Add: ["--std=gnu11"]
+---
+CompileFlags:
+  Remove: ["-mno-direct-extern-access"]
   # Does not seem to work
   #CompilationDatabase: build/
-  Remove: ["-mno-direct-extern-access"]
-  Add: ["--std=gnu11"]
+---
