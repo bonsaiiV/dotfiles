@@ -5,19 +5,21 @@ local api = vim.api
 opt.modeline = false
 opt.shell='/bin/fish'
 
-opt.number        = true
-opt.relativenumber    = true
-opt.scrolloff        = 4
-opt.expandtab        = false
-opt.tabstop        = 8
-opt.shiftwidth        = 8
-opt.smarttab        = true
-opt.softtabstop        = 4
+opt.number = true
+opt.relativenumber = true
+
+opt.scrolloff = 4
+opt.mouse = 'a'
+
+opt.expandtab = false
+opt.tabstop = 8
+opt.shiftwidth = 8
+opt.smarttab = true
+opt.softtabstop = 4
 
 opt.linebreak = true
 opt.breakindent = true
 
-opt.mouse        = 'a'
 
 -- #fold-setup using treesitter
 -- TODO better fold indication
