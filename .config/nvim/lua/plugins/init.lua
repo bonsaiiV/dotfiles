@@ -1,6 +1,7 @@
 local packages = {
     {
-        name = 'lukas-reineke/indent-blankline.nvim',
+        src = 'lukas-reineke/indent-blankline.nvim',
+        name = 'ibl',
         setup = function()
             local tty = vim.fn.getenv 'TERM' == 'linux'
             require('ibl').setup({
@@ -12,11 +13,11 @@ local packages = {
                         },
                     },
                 }
-            })
+            })--]]
         end,
     },
     {
-        name = 'stevearc/oil.nvim',
+        src = 'stevearc/oil.nvim',
         setup = function()
             local oil = require('oil')
             oil.setup({
@@ -41,8 +42,9 @@ for _, package in ipairs(packages) do
             vim.pack.add({'https://github.com/' .. dep})
         end
     end
-    if package.name then
-        vim.pack.add({'https://github.com/' .. package.name})
+    if package.src then
+        package.src = 'https://github.com/' .. package.src
+        vim.pack.add({package})
     end
     if package.setup then
         package.setup()
