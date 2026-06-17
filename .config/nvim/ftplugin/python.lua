@@ -23,21 +23,14 @@ local function run_python()
     vim.keymap.set('n', '<ESC>', function() vim.api.nvim_win_close(result_window,false) end, {buffer = 0})
 end
 
-vim.api.nvim_create_autocmd(
-    {'BufEnter'},
-    {
-        pattern = {"*.py"},
-        callback = function()
-            vim.opt.expandtab = true
-            --vim.opt.shiftwidth = 1
-            vim.api.nvim_create_user_command('Run',
-                run_python,
-                {desc ='run buffer code in python'}
-            )
-            vim.keymap.set('n', '<Leader>r',
-                run_python,
-                {desc ='run buffer code in python'}
-            )
-        end
-    }
+vim.opt.expandtab = true
+--vim.opt.shiftwidth = 1
+vim.api.nvim_create_user_command('Run',
+    run_python,
+    {desc ='run buffer code in python'}
 )
+vim.keymap.set('n', '<Leader>r',
+    run_python,
+    {desc ='run buffer code in python'}
+)
+
