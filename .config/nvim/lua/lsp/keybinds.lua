@@ -33,6 +33,7 @@ local function all_diagnostics()
         , true
         , {relative = 'win', row=3, col=10, width=100, height=12}
     )
+
     vim.opt.conceallevel = 3
     vim.opt.concealcursor = "nvic"
     vim.opt.syntax = "diag"
@@ -40,31 +41,37 @@ local function all_diagnostics()
     vim.wo[diag_win].number = false
     vim.wo[diag_win].relativenumber = false
 
+    -- only enable jump to line, if a diagnostic is available
+    if (count ~= 0) then
+        vim.keymap.set(
+            'n'
+            , '<Enter>'
+            , function()
+                local buf_line_nr = vim.api.nvim_win_get_cursor(diag_win)[1]
+                local buf_line = vim.api.nvim_buf_get_lines(buf, buf_line_nr-1, buf_line_nr, true)
+                local diag_index = string.match(buf_line[1], "%d+")
+                local diag_line_nr = diagnostics[tonumber(diag_index)].lnum + 1
+                vim.api.nvim_win_set_cursor(old_win, {diag_line_nr, 0})
+                vim.api.nvim_win_close(diag_win,false)
+            end
+            , {buffer = 0}
+        )
+    end
+
     vim.keymap.set(
         'n'
         , '<ESC>'
         , function() vim.api.nvim_win_close(diag_win,false) end
         , {buffer = 0}
     )
-    vim.keymap.set(
-        'n'
-        , '<Enter>'
-        , function()
-            local buf_line_nr = vim.api.nvim_win_get_cursor(diag_win)[1]
-            local buf_line = vim.api.nvim_buf_get_lines(buf, buf_line_nr-1, buf_line_nr, true)
-            local diag_index = string.match(buf_line[1], "%d+")
-            local diag_line_nr = diagnostics[tonumber(diag_index)].lnum + 1
-            vim.api.nvim_win_set_cursor(old_win, {diag_line_nr, 0})
-            vim.api.nvim_win_close(diag_win,false)
-        end
-        , {buffer = 0}
-    )
+
     vim.keymap.set(
         'n'
         , '<Leader>a'
         , function() end
         , {buffer = buf}
     )
+
     vim.keymap.set(
         'n'
         , '<Leader>d'
