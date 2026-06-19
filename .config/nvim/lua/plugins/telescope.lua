@@ -2,7 +2,10 @@ return {
     src = 'nvim-telescope/telescope.nvim',
     dependencies = {'nvim-lua/plenary.nvim'},
     setup = function()
-        local builtin = require('telescope.builtin')
+        local ok, builtin = pcall(require, 'telescope.builtin')
+        if not ok then
+            return
+        end
         if os.getenv('SESSION_NAME') == 'config' then
             vim.keymap.set(
                 'n',

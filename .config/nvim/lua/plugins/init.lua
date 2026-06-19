@@ -3,8 +3,12 @@ local packages = {
         src = 'lukas-reineke/indent-blankline.nvim',
         name = 'ibl',
         setup = function()
+            local ok, ibl = pcall(require, 'ibl')
+            if not ok then
+                return
+            end
             local tty = vim.fn.getenv 'TERM' == 'linux'
-            require('ibl').setup({
+            ibl.setup({
                 indent = { char = tty and '|' or nil },
                 scope = {
                     include = {
@@ -19,7 +23,10 @@ local packages = {
     {
         src = 'stevearc/oil.nvim',
         setup = function()
-            local oil = require('oil')
+            local ok, oil = pcall(require, 'oil')
+            if not ok then
+                return
+            end
             oil.setup({
                 keymaps = {
                 ['<Leader>y'] =
