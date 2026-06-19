@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <dirent.h>
 
-#include "init_functions.h"
+#include "modules.h"
 
 int charge_fd;
 char * battery_fulltext;

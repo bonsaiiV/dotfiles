@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
-#include "init_functions.h"
+#include "modules.h"
 
 time_t currentTime;
 struct tm * currentTime_local;
@@ -22,6 +23,11 @@ void print_time(void) {
 	printf("},\n");
 }
 
-print_fun init_time(void) {
-	return print_time;
+struct module init_time(void) {
+	struct module mod = {
+		.name = strdup("volume"),
+		.print = print_time,
+		.on_click = 0,
+	};
+	return mod;
 }

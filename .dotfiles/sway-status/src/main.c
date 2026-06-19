@@ -1,31 +1,33 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "init_functions.h"
+#include "modules.h"
 
-void (*modules_print[3]) (void) = {NULL, NULL, NULL};
-print_fun (*modules_init[3]) (void) = {init_battery, init_time, NULL};
+struct module modules[4];
+struct module (*modules_init[4]) (void) = {init_battery, init_time, init_idle_inhibit, NULL};
 
 int main(void) {
 	setlinebuf(stdout);
-	print_fun (**init_it) (void) = modules_init;
-	void (**print_it) (void);
-	print_it = modules_print;
+	struct module (**init_it) (void) = modules_init;
+	struct module *mod_it;
+	mod_it = modules;
 	while (*init_it) {
-		*print_it = (*init_it)();
-		if (*print_it) print_it++;
+		*mod_it = (*init_it)();
+		if (mod_it) mod_it++;
 		init_it++;
 	}
 
-	printf("{\"version\": 1}\n");
-	printf("[\n");
+	printf("{\n");
+	printf("\"version\": 1,\n");
+	printf("\"click_events\": true\n");
+	printf("}[\n");
 	//fflush(stdout);
 	while (1) {
-		print_it = modules_print;
+		mod_it = modules;
 		printf("[\n");
-		while (*print_it) {
-			(*print_it)();
-			print_it++;
+		while (mod_it) {
+			(*mod_it).print();
+			mod_it++;
 		}
 
 		//print_time();
@@ -34,9 +36,4 @@ int main(void) {
 		//fflush(stdout);
 		sleep(1);
 	}
-	/*mod_it = all_modules;
-	while (mod_it->cleanup) {
-		mod_it->cleanup();
-		mod_it++;
-	}//*/
 }

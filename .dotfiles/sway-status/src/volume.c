@@ -1,7 +1,7 @@
 #include <wp/wp.h>
 #include <stdio.h>
 
-#include "init_functions.h"
+#include "modules.h"
 
 void print_volume(void) {
 	printf("{");
@@ -10,7 +10,12 @@ void print_volume(void) {
 	printf("},\n");
 }
 
-print_fun init_volume(void) {
+struct module init_volume(void) {
 	wp_init(0);
-	return print_volume;
+	struct module mod = {
+		.name = strdup("volume"),
+		.print = print_volume,
+		.on_click = 0,
+	};
+	return mod;
 }
