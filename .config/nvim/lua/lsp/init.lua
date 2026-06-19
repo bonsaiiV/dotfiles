@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
             vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = false})
 
-            vim.keymap.set('i', '<Tab>', function()
+            vim.keymap.set('i', '<S-Tab>', function()
                 vim.lsp.completion.get()
             end, {})
         end
