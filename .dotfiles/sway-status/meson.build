@@ -3,13 +3,18 @@ project(
   'c',
   meson_version : '>= 1.3.0',
   version : '0.1',
-  default_options : ['warning_level=3'],
+  default_options : [
+    'warning_level=2',
+    'c_std=gnu11',
+    ],
 )
 
 include_dir = include_directories('include')
 
+nm_dep = dependency('libnm')
+wp_dep = dependency('wireplumber-0.5')
 dependencies = [
-  dependency('wireplumber-0.5'),
+  wp_dep,
 ]
 
 sources = []
@@ -21,4 +26,16 @@ exe = executable(
   dependencies : dependencies,
   include_directories : include_dir,
   install : true,
+)
+
+pw_test = executable(
+  'pw_test',
+  files('test/pipewire.c'),
+  dependencies : wp_dep,
+)
+
+nm_test = executable(
+  'nm_test',
+  files('test/network.c'),
+  dependencies : nm_dep,
 )
