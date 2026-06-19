@@ -168,6 +168,7 @@ for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number
 for_window [app_id="Element"] move container to workspace number $ws10
 #for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox"] inhibit_idle fullscreen
 #
 # Layout stuff:
 #
