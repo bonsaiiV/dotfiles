@@ -23,6 +23,7 @@ zip unzip wget usbutils
 # lsps
 texlab 
 lua-language-server
+ty  ; python
 
 # optional
 libreoffice

@@ -2,6 +2,7 @@ require('lsp/clangd')
 require('lsp/luals')
 require('lsp/texlab')
 require('lsp/keybinds')
+require('lsp/python')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
