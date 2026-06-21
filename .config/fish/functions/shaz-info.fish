@@ -29,7 +29,11 @@ function shaz-info -d 'add metadata to mp3 through shazam'
 
 		# set artist and title
 		mp3info $f $args
-		set newfilename "$title.mp3"
+		set newfilename "$(dirname $f)/$title.mp3"
+		if [ "$f" = "$newfilename" ]
+			echo "$f is already in place"
+			return
+		end
 		if [ -e $newfilename ]
 			read -p "echo \"File $newfilename already exists. Overwrite file? [y/N] \"" reply
 			if [ $reply = y -o $reply = Y ]
