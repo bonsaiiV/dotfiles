@@ -1,9 +1,11 @@
 function add-to-playlist -d 'add song to playlist'
-	set playlist_path "$HOME/Documents/media/music/playlists/$argv[1]"
+	set playlist_dir "$HOME/Documents/media/music/Playlists/"
+	set playlist_path "$playlist_dir/$argv[1]"
 	if [ ! -e $playlist_path ]
 		echo "Playlist does not exist"
 		read -p "echo 'Create new playlist?[y/N] '" reply
 		if [ $reply = y -o $reply = Y ]
+			mkdir -p $playlist_dir
 			touch $playlist_path
 		else
 			echo "playlist not created"
