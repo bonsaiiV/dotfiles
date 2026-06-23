@@ -24,7 +24,7 @@ function add-to-playlist -d 'add song to playlist'
 			continue
 		end
 		if [ -z $(cat $playlist_path | grep $f - ) ]
-			echo "$PWD/$f" >> $playlist_path
+			echo "$f" >> $playlist_path
 			set count $(math $count +1)
 		end
 	end
