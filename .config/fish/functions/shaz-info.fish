@@ -43,12 +43,12 @@ function shaz-info -d 'add metadata to mp3 through shazam'
 		if [ -e $newfilename ]
 			read -p "echo \"File $newfilename already exists. Overwrite file? [y/N] \"" reply
 			if [ $reply = y -o $reply = Y ]
-				mv $newfilename "$title.mp3"
+				mv "$f" "$newfilename"
 			else
 				echo "file not moved"
 			end
 		else
-			mv $newfilename "$title.mp3"
+			mv "$f" "$newfilename"
 		end
 	end
 end
