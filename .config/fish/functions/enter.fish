@@ -61,7 +61,6 @@ function start-tmux-by-config -d "start a tmux session, that is setup according 
 			set tmux_env_list $tmux_env_list "-e" "$line"
 		end
 	end
-
 	if [ (jq 'has("nvim_max_session_age")' < $session_config) = true ]
 		set nvim_max_session_age "-$(jq -r '."nvim_max_session_age"' < $session_config)"
 	else
@@ -73,6 +72,14 @@ function start-tmux-by-config -d "start a tmux session, that is setup according 
 	tmux new-session -dc "$session_path" $tmux_env_list -s $session_name "nvim $nvim_params"
 
 	tmux new-window -dc "$session_path" -t "$session_name"":"
+
+	if [ (jq 'has("additional_tabs")' < $session_config) = true ]
+		for line in (jq -r '.["additional_tabs"].[]' < $session_config)
+			tmux new-window -dc "$session_path" -t "$session_name"":" "$line"
+		end
+	end
+
+
 	tmux attach -t $session_name
 end
 

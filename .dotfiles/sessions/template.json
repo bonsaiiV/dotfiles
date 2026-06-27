@@ -8,4 +8,7 @@
 		, "var2=val2"
 	]
 	, "nvim_max_session_age" : "1 hour"
+	, "additional_tabs": [
+		"nvim /home/bonsaiiv"
+	}
 }
