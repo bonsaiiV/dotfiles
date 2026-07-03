@@ -252,7 +252,7 @@ output eDP-1 {
 output DP-4 {
 	position -2560 0
 }
-output DP-7 {
+output "Dell Inc. DELL U2724D 7DP0D84" {
 	position -2560 0
 }
 
