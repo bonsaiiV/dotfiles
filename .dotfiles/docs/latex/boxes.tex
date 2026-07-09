@@ -2,11 +2,40 @@
 % parboxes can be zerowidth, while containing other stuff
 % this is useful to layer multiple things or when measurements need to ignore some text
 % use this file to mess around
-\documentclass{standalone}
+\documentclass{article}
 \begin{document}
 
 %\parbox[pos: t, b, c][height][contentpos: c, t, b]{width}{text}
 \parbox{0px}{\framebox{\strut\hspace{1cm}\strut}}
 Hello there
+\\
+\begin{minipage}{0.5\linewidth}
+    Left minipage
+% comment line end after first minipage, to ensure, that enought space is available
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+    Right minipage
+\end{minipage}\\
+
+
+% If alignment between minipages is required, use a tabular with p-type columns
+\begin{tabular}{p{0.5\linewidth} p{0.5\linewidth}}
+    1 & 2\\
+    3 & 4
+\end{tabular}
+
+% array stretch can be used to increase distance between rows to a reasonable amount
+{
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{p{0.5\linewidth} p{0.5\linewidth}}
+    1 & 2\\
+    3 & 4
+\end{tabular}\\
+}
+
+\begin{tabular}{p{0.5\linewidth} p{0.5\linewidth}}
+    1 & 2\\
+    3 & 4
+\end{tabular}
 
 \end{document}
