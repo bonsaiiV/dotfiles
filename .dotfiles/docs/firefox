@@ -5,6 +5,7 @@
 	- [*] temporarily set top-level sitez to TRUSTED
 - Vimium C - All By Keyboard
 - KeePassXC-Browser
+    - improved detection
 - FoxyProxy
 	- setup SOCKS 5 proxy on local host with .ssh/config
 
