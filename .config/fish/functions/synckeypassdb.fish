@@ -8,9 +8,9 @@ function synckeypassdb
 		set db "default"
 	end
 
-	set local_db_file "$XDG_DATA_HOME/keepass/$db"".kdbx"
+	set local_db_file "$XDG_DATA_HOME/keepassxc/$db"".kdbx"
 
-	if rsync "pi:/usr/local/share/keepass/$db"".kdbx" "$tmp_db_dir""/$db"".kdbx"
+	if rsync "pi:/usr/local/share/keepassxc/$db"".kdbx" "$tmp_db_dir""/$db"".kdbx"
 		if [ ! -f  "$local_db_file" ]
 			mv "$tmp_db_dir""/$db"".kdbx" "$local_db_file"
 			return
@@ -19,5 +19,5 @@ function synckeypassdb
 		keepassxc-cli merge --same-credentials "$local_db_file" "$tmp_db_dir""/$db"".kdbx"
 	end
 
-	rsync "$local_db_file" "pi:/usr/local/share/keepass/$db"".kdbx"
+	rsync "$local_db_file" "pi:/usr/local/share/keepassxc/$db"".kdbx"
 end
