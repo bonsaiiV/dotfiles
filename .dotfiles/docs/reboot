@@ -1,0 +1,14 @@
+when upgrading some things might break until restart
+
+## kernel modules
+
+Kernel modules are stored in a folder, that is named based on the version of the linux kernel, that they are for.
+When updating, pacman moves the kernel modules to the new folder and/or replaces them by a new version (not 100% factual).
+This means that loading new kernel modules fails.
+
+## usb-sticks
+When pluging in an usb-stick for the first time after booting, a kernel module is loaded.
+This means, that a reboot is required before usb-sticks start working again.
+
+## valgrind
+Valgrind failes if gcc or something is updated.
