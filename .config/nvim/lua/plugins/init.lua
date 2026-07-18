@@ -29,13 +29,7 @@ local packages = {
             end
             oil.setup({
                 keymaps = {
-                ['<Leader>y'] =
-                function()
-                    local entry = oil.get_cursor_entry()
-                    vim.fn.setreg('', 'file://' .. oil.get_current_dir() .. entry.name)
-                    -- local utils = require('utils')
-                    -- utils.print_table(entry)
-                end
+                    ['<Leader>y'] = { "actions.yank_entry", mode = "n"},
                 }
             })
         end,
