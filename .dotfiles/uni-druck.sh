@@ -36,7 +36,7 @@ while getopts ':p:c:s' OPTION; do
 					;;
 
 				"ls11")
-					printer=ls11ptr1
+					printer=ls11prt1
 					;;
 			esac
 			;;
@@ -50,11 +50,11 @@ if [ "$printer" = "" ]; then
 	echo "no printer selected"
 	exit 1
 fi
+print_command="lpr -P $printer $sides_arg -# $count"
 if [ "$ssh_target" = "" ]; then
-	print_command="lpr -P $printer"
 	location_info="in current network"
 else
-	print_command="ssh $ssh_target \"lpr -P $printer\""
+	print_command="ssh $ssh_target \"$print_command\""
 	location_info="accessing through $ssh_target"
 fi
 success=""
@@ -71,7 +71,8 @@ while [ $# -gt 0 ]; do
 		continue
 	fi
 	echo "printing $1 at $printer $location_info"
-	cat "$1" | ssh $ssh_target "lpr -P $printer $sides_arg -# $count"
+	#cat "$1" | ssh $ssh_target "lpr -P $printer $sides_arg -# $count"
+	cat "$1" | eval $print_command
 	if [ "$?" != 0 ]; then
 		failed+="\n\t- issue with printer detected; stopping"
 		break
