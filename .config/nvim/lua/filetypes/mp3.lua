@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd(
             end
 
             vim.api.nvim_buf_set_lines(0, 0, 1, true, lines)
+            vim.cmd.doautocmd({ args = { "BufReadPost" } })
         end
     }
 )
@@ -37,14 +38,16 @@ vim.api.nvim_create_autocmd(
                 for w in l:gmatch("[^\t:]+") do
                     table.insert(words, w)
                 end
-                if (words[2] == nil) then
-                    goto continue
-                end
                 local flag = flags_table[words[1]]
                 if (flag == nil) then
                     goto continue
                 end
-                table.insert(cmd, flag .. words[2])
+                    table.insert(cmd, flag)
+                if (words[2] == nil) then
+                    table.insert(cmd, "")
+                else
+                    table.insert(cmd, words[2])
+                end
                 ::continue::
             end
             table.insert(cmd, ev.file)
