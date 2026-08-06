@@ -4,7 +4,7 @@ title = "Alacritty"
 opacity = 0.8
 
 [font]
-size = 9.25
+size = 10.25
 
 [terminal.shell]
 args = ["--login"]
