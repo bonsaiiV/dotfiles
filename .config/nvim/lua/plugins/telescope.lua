@@ -42,4 +42,11 @@ return {
             {}
         )
     end,
+    opts = {
+        defaults = {
+            preview = {
+                treesitter = false,
+            },
+        },
+    },
 }
