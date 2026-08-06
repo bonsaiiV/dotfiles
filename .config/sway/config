@@ -249,9 +249,7 @@ bindsym XF86MonBrightnessUp exec $increaseBrightness
 output eDP-1 {
 	position 0 0
 }
-output DP-4 {
-	position -2560 0
-}
+
 output "Dell Inc. DELL U2724D 7DP0D84" {
 	position -2560 0
 }
