@@ -1,0 +1,13 @@
+# Not in use + not tested
+[Unit]
+Description=Kill eletron applications before sleep
+DefaultDependencies=no
+Before=sleep.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/pkill electron --signal 9
+
+[Install]
+WantedBy=sleep.target
