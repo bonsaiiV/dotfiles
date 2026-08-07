@@ -250,6 +250,14 @@ output eDP-1 {
 	position 0 0
 }
 
+output "ViewSonic Corporation VG2440 WCE234782256" {
+	position 0 0
+}
+
+output "BNQ BenQ GL2760 55E06778019" {
+	position 1920 0
+}
+
 output "Dell Inc. DELL U2724D 7DP0D84" {
 	position -2560 0
 }
