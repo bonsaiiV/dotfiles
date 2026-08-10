@@ -7,7 +7,7 @@ plymouth
 # for working sway
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
 alacritty fish udisks2
-grim slurp brighnessctl wireplumber
+grim slurp brightnessctl wireplumber
 gcc clang tmux jq meson
 pkgconf cmake make fakeroot debugedit binutils patch
 kmonad
