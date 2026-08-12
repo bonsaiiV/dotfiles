@@ -102,14 +102,14 @@
 )
 (deflayer numeric
 	[ 1 2 3 ]   XX @bse @gme XX   XX
-	; 4 5 6 =   XX rsft rctl alt  met
+	: 4 5 6 =   XX rsft rctl alt  met
 	` 7 8 9 \\  XX @num @nav ralt XX
 
 	     . 0 -  ent bspc del
 )
 (deflayer symbol
 	{ ! @ #  }  XX @bse @gme XX   XX
-	: $ % ^  +  XX rsft rctl alt  met
+	; $ % ^  +  XX rsft rctl alt  met
 	~ & * \( |  XX @sym  XX  ralt XX
 
 	  \( \) \_  ent bspc del

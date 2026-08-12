@@ -55,7 +55,7 @@ exec nmcli c monitor eduroam | ~/.dotfiles/mute-in-eduroam.sh
 
 ### Keyboard
 input type:keyboard {
-    xkb_layout "custom_xkb"
+    xkb_layout "eu"
 }
 input type:touchpad {
     natural_scroll disabled
