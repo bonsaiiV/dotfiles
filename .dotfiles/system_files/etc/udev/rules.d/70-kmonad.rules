@@ -16,6 +16,10 @@ ATTRS{name}=="Logitech K540/K545", \
 TAG+="systemd", \
 ENV{SYSTEMD_WANTS}+="dotfiles-kmonad@$result.service"
 
+ATTRS{name}=="Tt eSPORTS CHALLENGER Prime RGB", \
+TAG+="systemd", \
+ENV{SYSTEMD_WANTS}+="dotfiles-kmonad@$result.service"
+
 ATTRS{name}=="Kensington Wireless Presenter with Laser Pointer", \
 TAG+="systemd", \
 ENV{SYSTEMD_WANTS}+="presenter-kmonad@$result.service"
