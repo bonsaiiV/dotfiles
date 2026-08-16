@@ -11,7 +11,7 @@ grim slurp brightnessctl wireplumber
 gcc clang tmux jq meson
 pkgconf cmake make fakeroot debugedit binutils patch
 kmonad
-git-delta
+git-delta ripgrep
 handlr-regex firefox
 
 noto-fonts ttf-noto-nerd
