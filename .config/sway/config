@@ -137,6 +137,8 @@ set $ws8 8:8
 set $ws9 9:Mail
 set $ws10 10:Chat
 
+workspace $ws9 output 'eDP-1'
+
     # Switch to workspace
     bindsym $mod+1 workspace number $ws1
     bindsym $mod+2 workspace number $ws2
@@ -166,6 +168,7 @@ set $ws10 10:Chat
 for_window [class="steam"] move container to workspace number $ws8
 for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number $ws9
 for_window [app_id="Element"] move container to workspace number $ws10
+for_window [app_id="Zulip"] move container to workspace number $ws10
 #for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox"] inhibit_idle fullscreen
