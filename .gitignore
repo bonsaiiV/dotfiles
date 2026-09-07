@@ -2,6 +2,11 @@
 !.gitignore
 !.dotfiles
 !.config/
+!.local/
+.local/*
+!.local/share/
+.local/share/*
+!.local/share/applications/
 
 # bash
 !.bash_aliases
