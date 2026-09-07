@@ -1,0 +1,18 @@
+# Zotero
+
+## Easy BibTeX Export
+
+-> Edit -> Settings -> Export
+
+- Set Quick Copy Item Format to BibTeX
+- Copy BibTeX with Ctrl + Shift + c
+
+## Usefull features
+
+- Move Items with Shift + Mouse-drag
+- Export entire Library
+	- While on library browser: -> File -> Export Library
+		- zotero rdf is recommended
+		- csv is smaller
+		- no further tests done
+	- Maybe check CLI availability?
