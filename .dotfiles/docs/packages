@@ -4,26 +4,31 @@ opendoas git man-db man-pages openssh neovim
 btrfs-progs networkmanager
 plymouth
 
-# for working sway
+# for working sway and config
 sway wofi xorg-xwayland waybar swaybg swaylock wl-clipboard
-alacritty fish udisks2
+alacritty fish tmux
 grim slurp brightnessctl wireplumber
-gcc clang tmux jq meson
+gcc clang meson valgrind
 pkgconf cmake make fakeroot debugedit binutils patch
 kmonad
-git-delta ripgrep
-handlr-regex firefox
-
-noto-fonts ttf-noto-nerd
-thunderbird element
-keepassxc qt5-wayland qt6-wayland
+git-delta ripgrep jq mp3info
+handlr-regex udisks2
 
 zip unzip wget usbutils
+
+# apps
+firefox
+noto-fonts ttf-noto-nerd
+
+vlc vlc-plugin-ffmpeg mpv
+
+thunderbird element
+keepassxc qt5-wayland qt6-wayland
 
 # lsps
 texlab 
 lua-language-server
-ty  ; python
+ty  ;python
 
 # optional
 libreoffice
@@ -39,4 +44,4 @@ zotero-bin zulip-desktop
 
 python
 python-matplotlib python-networkx
-uv --für bessere venv
+uv  ;für bessere venv
