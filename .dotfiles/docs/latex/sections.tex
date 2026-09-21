@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                       A Quick Note on Alternatives                    %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% sometimes it is enough to just define a command,
+% that just prints a formated heading and steps the counter with
+% \refstepcounter{mysection}
+% with a correct counter setup, this resets counters of childsections and
+% \label and \ref work fine by calling \themysection
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                       Defining a New Type of Section                  %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% define a new counter for the new type of section
+% the optional parentsection is a counter,
+% that automatically resets the counter of mysection
+\newcounter{mysection}[parentsection]
+
+
+% representation of the counter
+% this will be used in the custom section header and toc entry and references
+\renewcommand\themysection{\normalfont\large{\bfseries MySection \arabic{mysection}.}}
+
+
+% this command needs to be defined, as otherwise the argument is printed during startsection
+\newcommand\teilnrmark[1]{}
+
+\makeatletter
+\newcommand{\mysection}[2]{ % The command to start the section. Does not need to match
+    \@startsection          % The @startsection command is wraped. Parameters to @startsection are explained here
+                            % Sometimes it is better to use currying by not consuming arguments and
+                            % Siehe auch /usr/share/texmf-dist/tex/latex/base/latex.ltx, Zeile 17231
+                            %
+    {mysection}             % Counter, der für die section benutzt wird
+                            %
+    {1}                     % Tiefe der section
+                            %
+    {\z@}                   % Irgendwas mit indent
+                            %
+    {0em}                   % Platz davor?
+                            %
+    {-1em}                  % Platz danach, negative werte für horizontal anstatt vertikal
+                            %
+    {\emph}                 % Formatierung, wichtig wenn Referenzen verwendet werden
+                            % und die Formatierung des counters in den Referenzen anders ist, als im Titel
+                            %
+    {#2}                    % Name der section. Kann auch gecurryed werden für
+                            % optionale * und [toctitle] von startsection
+                            %
+    (insgesamt \punkte{#1}) % Text nach dem Gegeben Titel: hier Punktzahl der Aufgabe. Nicht möglich mit currying
+    }%
+\makeatother
