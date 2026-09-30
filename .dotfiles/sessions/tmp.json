@@ -1,6 +1,6 @@
 {
 	"pre": [
-		"mkdir -p /tmp/$tmpdir"
+		"mkdir -p /tmp/session"
 	],
 	"dir": "/tmp/session",
 	"env": [

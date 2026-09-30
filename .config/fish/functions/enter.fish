@@ -53,7 +53,7 @@ function start-tmux-by-config -d "start a tmux session, that is setup according 
 	# why is = true important?
 	if [ (jq 'has("pre")' < $session_config) = true ]
 		for line in (jq -r '.["pre"].[]' < $session_config)
-			$line
+			eval "$line"
 		end
 	end
 	if [ (jq 'has("env")' < $session_config) = true ]
