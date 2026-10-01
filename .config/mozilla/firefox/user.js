@@ -26,6 +26,13 @@ user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.tabs.groups.smart.userEnabled", false);
 user_pref("extensions.ml.enabled", false);
 
+// disable nova design
+pser_pref("browser.adoutaddons.novaThemesPickerEnabled", false);
+pser_pref("browser.newtabpage.activity-stream.nova.enabled", false);
+pser_pref("browser.nova.enabled", false);
+pser_pref("browser.urlbar.quicksuggest.ampTopPickUseNovaIconsize", false);
+pser_pref("pdfjs.enableNova", false);
+
 // newtab
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
