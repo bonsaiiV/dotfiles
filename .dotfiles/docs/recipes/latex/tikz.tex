@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,through}
+% i have no ideo how this works
+\tikzset{circumcircle/.style n args={3}{%
+insert path={let    \p1=($(#1)!0.5!(#2)$),
+                    \p2=($(#1)!0.5!(#3)$),
+                    \p3=($(#1)!0.5!(#2)!1!-90:(#2)$),
+                    \p4=($(#1)!0.5!(#3)!1!90:(#3)$),
+                    \p5=(intersection of \p1--\p3 and \p2--\p4)
+                    in },
+at={(\p5)},
+circle through= {(#1)},circle={0.1cm}
+}}
+\def\scalep{0.4}
+\begin{document}
+    \begin{tikzpicture}
+    % clip a tikzpicture
+        \clip (-10*\scalep,-0.5) rectangle (10*\scalep,100*\scalep*\scalep);
+        \draw[domain = -5*\scalep:10*\scalep, variable = \x] plot ({\x}, {\x*\x*0.5});
+        % no spaces in foreach, otherwise, they are included in the variables
+        \foreach \x/\nodename in {1/A,2/B,3/C,4/D,5/E,6/F,7/G,8/H,9/I}
+        {
+            \ifodd\x
+                \draw[fill, color=red!50!red] (\x*\scalep, \x*\x*\scalep*\scalep*0.5) circle (\scalep*0.4cm) node (\nodename){};
+            \else
+                \draw[fill, color=blue!50!blue] ({\x*\scalep}, {\x * \x*\scalep*\scalep*0.5}) circle (\scalep*0.4cm) node (\nodename){};
+            \fi
+        }
+        \node[circumcircle={B}{F}{H}, draw=red] {};
+    \end{tikzpicture}
+\end{document}
