@@ -1,7 +1,18 @@
 \documentclass{standalone}
+% standalone can be used to place figures in a different file
+% it is included in the main document with
+% \begin{standalone}
+% \input{filename.tex}
+% \end{standalone}
+
 \usepackage{tikz}
 \usetikzlibrary{calc,through}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create circumcircle
 % i have no ideo how this works
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \tikzset{circumcircle/.style n args={3}{%
 insert path={let    \p1=($(#1)!0.5!(#2)$),
                     \p2=($(#1)!0.5!(#3)$),
@@ -28,5 +39,17 @@ circle through= {(#1)},circle={0.1cm}
             \fi
         }
         \node[circumcircle={B}{F}{H}, draw=red] {};
+
+
+\begin{document}
+    \begin{tikzpicture}[thick]
+        \clip (-1, -1) rectangle (5,5); % clip the figure to the given area, needs to be placed at the start
+
+        \node[circle, draw] (A) at (0, 0) {A}; % semicolon is important in tikz
+        \node[circle, draw] (B) at (2, 0) {B};
+        \node[circle, draw] (C) at (2, 2) {C};
+
+        \node[->, thick] (A) -- (B) node [midway, above] {5};
+        \node[thick] (A) -- (C);
     \end{tikzpicture}
 \end{document}
