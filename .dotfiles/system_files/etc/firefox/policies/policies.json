@@ -1,5 +1,10 @@
 {
 	"policies": {
+		"AIControls": {
+			"Default": {
+				"Value": "blocked"
+			}
+		},
 		"ExtensionSettings": {
 			"uBlock0@raymondhill.net": {
 				"installation_mode": "force_installed",

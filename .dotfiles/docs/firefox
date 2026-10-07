@@ -10,6 +10,10 @@
 	- setup SOCKS 5 proxy on local host with .ssh/config
 
 # Einstellungen
+
+## permissions
+popups
+
 ## about:prefenrences
 appearance: dark
 Downloads: always ask
@@ -55,7 +59,12 @@ browser.tabs.groups.smart.userEnabled
 extensions.ml.enabled
 sidebar.revamp
 
+
 # policies
+
+Documentation on:
+https://firefox-admin-docs.mozilla.org/reference/policies/aicontrols/
+
 			"zotero@chnm.gmu.edu": {
 				//"installation_mode": "force_installed",
 				//"private_browsing": true,
