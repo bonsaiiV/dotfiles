@@ -11,11 +11,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Create circumcircle
 % i have no ideo how this works
+% some insanity: https://tikz.dev/tutorial-Euclid
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{circumcircle/.style n args={3}{%
-insert path={let    \p1=($(#1)!0.5!(#2)$),
+% a ! p ! b can be used to interpolate two values a and b. The value p is used to determin which point on the interpolated line to select
+insert path={let    \p1=($(#1)!0.5!(#2)$), % here p1 is defined to be center (at 0.5) between parameter #1 and #2
                     \p2=($(#1)!0.5!(#3)$),
+                    % point!partway!angle:point can be used as modifier.
+                    % The resulting point is rotate by the given angle around the first point.
                     \p3=($(#1)!0.5!(#2)!1!-90:(#2)$),
                     \p4=($(#1)!0.5!(#3)!1!90:(#3)$),
                     \p5=(intersection of \p1--\p3 and \p2--\p4)
@@ -26,10 +30,14 @@ circle through= {(#1)},circle={0.1cm}
 \def\scalep{0.4}
 \begin{document}
     \begin{tikzpicture}
-    % clip a tikzpicture
+        % clip a tikzpicture
         \clip (-10*\scalep,-0.5) rectangle (10*\scalep,100*\scalep*\scalep);
-        \draw[domain = -5*\scalep:10*\scalep, variable = \x] plot ({\x}, {\x*\x*0.5});
-        % no spaces in foreach, otherwise, they are included in the variables
+
+        % draw a function, in this case a parabola
+        \draw[domain = -5*\scalep:10*\scalep, variable = \x] plot ({\x}, {\x*\x*\scalep*\scalep0.5});
+
+
+        % no spaces in foreach, otherwise, they are included in the variables and can not be interpreted as a number
         \foreach \x/\nodename in {1/A,2/B,3/C,4/D,5/E,6/F,7/G,8/H,9/I}
         {
             \ifodd\x
