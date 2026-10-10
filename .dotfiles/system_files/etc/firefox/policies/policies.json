@@ -5,6 +5,12 @@
 				"Value": "blocked"
 			}
 		},
+		"ClearOnShutdown": {
+			"BrowsingHistoryAndDownloads": true,
+			"CookiesAndStorage": true,
+			"Cache": true,
+			"FormData": true
+		},
 		"ExtensionSettings": {
 			"uBlock0@raymondhill.net": {
 				"installation_mode": "force_installed",
@@ -24,6 +30,29 @@
 				"default_area": "menupanel",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser@keepassxc.org/latest.xpi"
 			}
+		},
+		"SearchEngines": {
+			"Default": "custom ddg",
+			"Add": [
+				{
+					"Name": "custom ddg",
+					"URLTemplate": "https://noai.duckduckgo.com/",
+					"Method": "POST",
+					"Alias": ":ddg",
+					"PostData": "q=%s&kg=p&kc=-1&kav=-1&kae=d&kj=7750AA&k7=222222&kaj=m&ks=s"
+				},
+				{
+					"Name": "OSM",
+					"URLTemplate": "https://www.openstreetmap.org/search?query=%s",
+					"Method": "GET",
+					"Alias": ":osm"
+				}
+			],
+			"Remove": [
+				"DuckDuckGo",
+				"Bing",
+				"Perplexity"
+			]
 		}
 	}
 }
