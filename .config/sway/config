@@ -137,7 +137,9 @@ set $ws8 8:8
 set $ws9 9:Mail
 set $ws10 10:Chat
 
-workspace $ws9 output 'eDP-1'
+workspace $ws8 output "BNQ BenQ GL2760 55E06778019" eDP-1
+workspace $ws9 output "BNQ BenQ GL2760 55E06778019" eDP-1
+workspace $ws0 output "BNQ BenQ GL2760 55E06778019" eDP-1
 
     # Switch to workspace
     bindsym $mod+1 workspace number $ws1

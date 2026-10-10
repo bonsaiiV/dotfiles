@@ -4,7 +4,7 @@
 ALL_kver="/boot/vmlinuz-linux-hardened"
 
 #PRESETS=('default' 'fallback')
-PRESETS=('fallback')
+#PRESETS=('fallback')
 
 #default_config="/etc/mkinitcpio.conf"
 #default_image="/boot/initramfs-linux-hardened.img"
