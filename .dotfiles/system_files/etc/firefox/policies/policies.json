@@ -39,7 +39,7 @@
 					"URLTemplate": "https://noai.duckduckgo.com/",
 					"Method": "POST",
 					"Alias": ":ddg",
-					"PostData": "q=%s&kg=p&kc=-1&kav=-1&kae=d&kj=7750AA&k7=222222&kaj=m&ks=s"
+					"PostData": "q={searchTerms}&kg=p&kc=-1&kav=-1&kae=d&kj=7750AA&k7=222222&kaj=m&ks=s"
 				},
 				{
 					"Name": "OSM",
