@@ -38,7 +38,8 @@ circle through= {(#1)},circle={0.1cm}
 
 
         % no spaces in foreach, otherwise, they are included in the variables and can not be interpreted as a number
-        \foreach \x/\nodename in {1/A,2/B,3/C,4/D,5/E,6/F,7/G,8/H,9/I}
+        % count is really neat to enumerat, from can also be larger
+        \foreach \nodename [count=\x from 1] in {A,B,C,D,E,F,G,H,I}
         {
             \ifodd\x
                 \draw[fill, color=red!50!red] (\x*\scalep, \x*\x*\scalep*\scalep*0.5) circle (\scalep*0.4cm) node (\nodename){};
