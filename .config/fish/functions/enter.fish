@@ -126,6 +126,7 @@ end
 
 
 function enter -d 'enter a tmux session'
+	argparse 'n/new' -- $argv
 	# get session name and path from parameter of use current dir as path
 	if [ (count $argv) -ge 1 ]
 		set session_name (echo $argv[1] | sed -e "s/\./_/g")
@@ -150,33 +151,44 @@ function enter -d 'enter a tmux session'
 		return
 	end
 
-	# if a matching session exists, attach to it
-	if tmux has -t "=$session_name" 2> /dev/null
-		tmux attach -t "=$session_name"
-		return
-	end
 
-	# tmux replaces '.' in the name of a session, that is newly created by '_'
-	# we need to do that before attempting to connect to the session
-	# we also need to do this later when creating the session
-	#set session_path_no_dots (echo $session_path | sed -e "s/\./_/g" | sed -e "s:/:_:g")
-	set session_path_no_dots (echo $session_path | sed -e "s/\./_/g")
-	if tmux has -t "=$session_path_no_dots" 2> /dev/null
-		tmux attach -t "$session_path_no_dots"
-		return
+	# set config file location here because we might change session name now
+	set session_config "$HOME/.dotfiles/sessions/$session_name.json"
+	set session_name_by_path (echo $session_path | sed -e "s/\./_/g")
+
+
+	# if a new session is forced with -n, we need to be careful about the session name
+	if set -q _flag_new
+		set session_name (uuidgen)
+		set session_name_by_path (uuidgen)
+	else
+		# if a matching session exists, attach to it
+		if tmux has -t "=$session_name" 2> /dev/null
+			tmux attach -t "=$session_name"
+			return
+		end
+
+		# tmux replaces '.' in the name of a session, that is newly created by '_'
+		# we need to do that before attempting to connect to the session
+		# we also need to do this later when creating the session
+		#set session_name_by_path (echo $session_path | sed -e "s/\./_/g" | sed -e "s:/:_:g")
+		if tmux has -t "=$session_name_by_path" 2> /dev/null
+			tmux attach -t "$session_name_by_path"
+			return
+		end
+
 	end
 
 	# create new session at given location
 	# prefer this over presets as it matches more strict
 	# why he fuck? did i do this maybe it fixed something see, if i need it again
-	#if path is -d $session_path_no_dots
+	#if path is -d $session_name_by_path
 	if path is -d $session_path
-		start-tmux-by-path $session_path $session_path_no_dots 
+		start-tmux-by-path $session_path $session_name_by_path 
 		return
 	end
 
 	# create new session from session config
-	set session_config "$HOME/.dotfiles/sessions/$session_name.json"
 	if [ -f $session_config ]
 		start-tmux-by-config $session_config $session_name
 		return
