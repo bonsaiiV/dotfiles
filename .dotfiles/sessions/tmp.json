@@ -1,9 +1,9 @@
 {
 	"pre": [
 		"mkdir -p /tmp/session"
-	],
-	"dir": "/tmp/session",
-	"env": [
+	]
+	, "dir": "/tmp/session"
+	, "env": [
 		"var=val",
 		"var2=val2"
 	]
