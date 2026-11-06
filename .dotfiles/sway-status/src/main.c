@@ -3,36 +3,37 @@
 
 #include "modules.h"
 
-struct module modules[4];
-struct module (*modules_init[4]) (void) = {init_battery, init_time, init_idle_inhibit, NULL};
+module modules[4];
+int (*modules_init[4]) (module *) = {init_battery, init_time, init_idle_inhibit, NULL};
 
 int main(void) {
 	setlinebuf(stdout);
-	struct module (**init_it) (void) = modules_init;
-	struct module *mod_it;
+	int (**init_it) (module *) = modules_init;
+	module *mod_it;
 	mod_it = modules;
 	while (*init_it) {
-		*mod_it = (*init_it)();
-		if (mod_it) mod_it++;
+		if ((*init_it)(mod_it)) {
+			mod_it++;
+		}
 		init_it++;
 	}
+	*mod_it = (module) {NULL, NULL, NULL};
 
-	printf("{\n");
-	printf("\"version\": 1,\n");
-	printf("\"click_events\": true\n");
-	printf("}[\n");
+	printf("{");
+	printf("\t\"version\": 1");
+	//printf(",\"click_events\": true\n");
+	printf("}\n[\n");
 	//fflush(stdout);
 	while (1) {
 		mod_it = modules;
-		printf("[\n");
-		while (mod_it) {
-			(*mod_it).print();
+		printf("\t[\n");
+		while (mod_it->print) {
+			//fprintf(stderr, "name: %s, print_fn: %p\n", mod_it->name, mod_it->print);
+			mod_it->print();
 			mod_it++;
 		}
 
-		//print_time();
-
-		printf("],\n");
+		printf("\t],\n");
 		//fflush(stdout);
 		sleep(1);
 	}

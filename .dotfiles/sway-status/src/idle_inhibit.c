@@ -3,6 +3,7 @@
 
 #include "modules.h"
 
+
 void print_idle_inhibit(void) {
 	printf("{");
 	printf("\"full_text\": \"idle_inhibit\"");
@@ -19,11 +20,12 @@ void on_click_idle_inhibit(void * data) {
 	return;
 }
 
-struct module init_idle_inhibit(void) {
-	struct module mod = {
+int init_idle_inhibit(module *ret) {
+	return 0;
+	*ret = (module) {
 		.name = strdup("idle_inhibit"),
 		.print = print_idle_inhibit,
 		.on_click = on_click_idle_inhibit,
 	};
-	return mod;
+	return 1;
 }

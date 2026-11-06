@@ -1,13 +1,13 @@
 typedef void (*print_fun) (void);
 typedef void (*click_fun) (void * data);
 
-struct module {
+typedef struct _module {
 	char * name;
 	print_fun print;
 	click_fun on_click;
-};
+}module;
 
-struct module init_battery(void);
-struct module init_time(void);
-struct module init_volume(void);
-struct module init_idle_inhibit(void);
+int init_battery(module *ret);
+int init_time(module *ret);
+int init_volume(module *ret);
+int init_idle_inhibit(module *ret);

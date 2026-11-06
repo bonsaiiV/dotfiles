@@ -20,7 +20,7 @@ void print_battery(void) {
 		exit(1);
 	}
 	snprintf(battery_fulltext, len_battery_fulltext, "%ld%%", 100 * atoi(file_buf)/charge_full);
-	printf("{");
+	printf("\t{\n");
 	printf("\"full_text\": \"%s\"", battery_fulltext);
 	printf(",\"background\": \"#323232\"");
 	printf(",\"border\": \"#323232\"");
@@ -29,7 +29,7 @@ void print_battery(void) {
 	printf("},\n");
 }
 
-print_fun init_battery(void) {
+int init_battery(module *ret) {
 	battery_fulltext = calloc(len_battery_fulltext, sizeof(char));
 	file_buf = calloc(len_charge_file_buf, sizeof(char));
 	struct dirent *dp;
@@ -60,7 +60,10 @@ print_fun init_battery(void) {
 	if (charge_fd != -1) {
 		// succes
 		charge_full = 100;
-		return print_battery;
+		ret->name = strdup("battery");
+		ret->print = print_battery;
+		ret->on_click = 0;
+		return 1;
 	}
 
 	if (snprintf(filepath, max_filepath_len, "/sys/class/power_supply/%s/charge_full", bat_name) < 0) {
@@ -81,7 +84,10 @@ print_fun init_battery(void) {
 	if (charge_fd == -1) {
 		goto cleanup;
 	} else {
-		return print_battery;
+		ret->name = strdup("battery");
+		ret->print = print_battery;
+		ret->on_click = 0;
+		return 1;
 	}
 cleanup:
 	fprintf(stderr, "failed to initialize battery module, continuing without\n");

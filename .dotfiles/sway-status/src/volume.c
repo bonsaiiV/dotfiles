@@ -10,12 +10,12 @@ void print_volume(void) {
 	printf("},\n");
 }
 
-struct module init_volume(void) {
+int init_volume(module *ret) {
 	wp_init(0);
-	struct module mod = {
+	*ret = (module) {
 		.name = strdup("volume"),
 		.print = print_volume,
 		.on_click = 0,
 	};
-	return mod;
+	return 1;
 }
